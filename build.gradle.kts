@@ -1,6 +1,18 @@
 buildscript {
-    val agp_version by extra("8.13.2")
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url = uri("https://jitpack.io") }
+    }
+
+    dependencies {
+        classpath(libs.kotlin.gradle)
+        classpath(libs.android.gradle)
+        classpath(libs.buildkonfig.gradle.plugin)
+    }
 }
+
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
     // in each subproject's classloader
