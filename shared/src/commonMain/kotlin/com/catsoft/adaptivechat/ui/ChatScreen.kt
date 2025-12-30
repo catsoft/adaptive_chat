@@ -75,13 +75,13 @@ fun ChatScreen(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         IconButton(onClick = onVoiceInput) {
-                            Icon(Icons.Default.Mic, "Voice input")
+                            Icon(Icons.Default.Send, "Voice input")
                         }
                         IconButton(onClick = onImageInput) {
-                            Icon(Icons.Default.Image, "Image input")
+                            Icon(Icons.Default.Send, "Image input")
                         }
                         IconButton(onClick = onDocumentInput) {
-                            Icon(Icons.Default.AttachFile, "Document input")
+                            Icon(Icons.Default.Add, "Document input")
                         }
                     }
                     
@@ -129,7 +129,7 @@ fun ChatScreen(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Chat,
+                        imageVector = Icons.Default.Send,
                         contentDescription = null,
                         modifier = Modifier.size(64.dp),
                         tint = MaterialTheme.colorScheme.primary
@@ -213,10 +213,10 @@ fun MessageBubble(message: Message) {
                     ) {
                         Icon(
                             imageVector = when (message.type) {
-                                MessageType.VOICE -> Icons.Default.Mic
-                                MessageType.IMAGE -> Icons.Default.Image
-                                MessageType.DOCUMENT -> Icons.Default.AttachFile
-                                else -> Icons.Default.Message
+                                MessageType.VOICE -> Icons.Default.Send
+                                MessageType.IMAGE -> Icons.Default.Send
+                                MessageType.DOCUMENT -> Icons.Default.Send
+                                else -> Icons.Default.Send
                             },
                             contentDescription = null,
                             modifier = Modifier.size(16.dp),
