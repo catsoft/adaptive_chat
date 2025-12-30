@@ -1,5 +1,5 @@
 rootProject.name = "AdaptiveChat"
-
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     repositories {

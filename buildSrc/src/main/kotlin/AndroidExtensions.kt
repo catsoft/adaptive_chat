@@ -41,6 +41,7 @@ fun Project.configureKmpCompilerOptions(
 fun Project.configureAndroidKmpTarget(jvmTarget: JvmTarget = JvmTarget.JVM_24, isLibrary: Boolean) {
     configure<KotlinMultiplatformExtension> {
         if (isLibrary) {
+            println("set android library target")
             androidLibrary {
                 compileSdk = Configs.Android.COMPILE_SDK
                 compilerOptions {
@@ -48,11 +49,20 @@ fun Project.configureAndroidKmpTarget(jvmTarget: JvmTarget = JvmTarget.JVM_24, i
                 }
             }
         } else {
+            println("set android target")
             androidTarget {
                 compilerOptions {
                     this.jvmTarget.set(jvmTarget)
                 }
             }
+        }
+    }
+}
+
+fun Project.setAndroidLibraryNamespace(namespace: String) {
+    configure<KotlinMultiplatformExtension> {
+        androidLibrary {
+            this.namespace = namespace
         }
     }
 }

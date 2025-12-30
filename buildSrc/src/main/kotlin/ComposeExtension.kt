@@ -26,9 +26,14 @@ fun Project.configureTargets(withBaseName: Boolean = true) {
     }
 }
 
-fun Project.configureModuleNamespace() {
+fun Project.configureModuleNamespace(isLibrary: Boolean) {
+    val namespace = "com.adaptivechat.${getFormattedName()}"
     extensions.findByType<com.android.build.gradle.BaseExtension>()?.apply {
-        namespace = "com.adaptivechat.${getFormattedName()}"
+        this.namespace = namespace
+    }
+
+    if (isLibrary) {
+        setAndroidLibraryNamespace(namespace = namespace)
     }
 
     println("Module ${project.name} -> namespace: ${getFormattedName()}")

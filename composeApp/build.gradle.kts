@@ -24,22 +24,13 @@ kotlin {
             implementation(libs.installreferrer)
             implementation(libs.androidx.profileinstaller)
 
-            implementation(libs.auth)
-            implementation(libs.auth.play)
-            implementation(libs.auth.identity)
-            implementation(libs.gms.auth)
-
             implementation(libs.graphql.java)
         }
 
         commonMain.dependencies {
-//            api(":shared")
+            api(projects.shared)
 
             implementation(libs.bundles.compose.full)
-
-            implementation(libs.apollo.runtime)
-            implementation(libs.apollo.normalized.cache)
-            implementation(libs.apollo.normalized.cache.sqlite)
 
             implementation(libs.serialization.json)
             implementation(libs.kotlinx.datetime)

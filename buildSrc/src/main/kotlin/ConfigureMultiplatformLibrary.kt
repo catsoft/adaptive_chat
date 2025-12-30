@@ -4,10 +4,11 @@ import org.gradle.api.Project
 
 class ConfigureMultiplatformLibrary : Plugin<Project> {
     override fun apply(project: Project) = with(project) {
-        configureModuleNamespace()
+        configureModuleNamespace(isLibrary = true)
         configureKotlinKeychain()
         configureKmpCompilerOptions()
         configureAndroidBase()
+        configureAndroidKmpTarget(isLibrary = true)
 
         configureTargets()
 

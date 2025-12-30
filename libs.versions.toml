@@ -4,7 +4,6 @@ mediaPlayerKMP = "2.1.0"
 
 buildkonfigGradlePlugin = "0.17.1"
 
-firebaseConfig = "23.0.0"
 humanReadable = "1.12.1"
 permissionsCompose = "0.20.1"
 room = "2.8.4"
@@ -34,23 +33,8 @@ lifecycleLivedataKtx = "2.10.0"
 lifecycleViewmodelKtx = "2.10.0"
 navigationFragmentKtx = "2.9.6"
 navigationUiKtx = "2.9.6"
-javaInject = "1"
-composeCoil = "2.7.0"
-gmsAuth = "21.4.0"
-gms = "4.4.4"
-firebaseBom = "34.6.0"
-pluginCrashlytics = "3.0.6"
 reactiveAndroid = "2.1.1"
 reactiveJava = "2.2.21"
-securityCryptoKtx = "1.1.0"
-tinkCrypto = "1.19.0"
-playAssetDelivery = "2.3.0"
-playFeatureDelivery = "2.1.0"
-playInAppReview = "2.0.2"
-playInAppUpdate = "2.1.0"
-jetbrainsKotlinJvm = "2.2.20"
-apollo = "4.3.3"
-
 
 coroutinesCore = "1.10.2"
 serializationJson = "1.9.0"
@@ -59,20 +43,10 @@ graphQLJava = "25.0"
 
 lottie = "6.7.1"
 
-facebook = "18.1.3"
-
-auth = "1.5.0"
-authPlay = "1.5.0"
-authIdentity = "1.1.1"
-
 composeMedia = "1.8.0"
 composeVideo = "1.0.50"
 composePaging = "3.3.6"
 
-workManager = "2.11.0"
-
-
-googleFirebaseAppdistribution = "5.2.0"
 uiautomator = "2.3.0"
 benchmarkMacroJunit4 = "1.4.1"
 baselineprofile = "1.4.1"
@@ -83,7 +57,6 @@ exifinterface = "1.4.2"
 securityCryptoKtxVersion = "1.1.0"
 
 connectivity = "2.3.0"
-kizitonwoseCalendar = "2.9.0"
 
 [bundles]
 ktor-common = ["ktor-client-core", "ktor-client-json", "ktor-client-logging", "ktor-client-serialization", "ktor-client-content-negotiation", "ktor-serialization"]
@@ -105,7 +78,6 @@ kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 kotlin-serialization-gradle = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
 compose-compiler-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 compose-gradle = { module = "org.jetbrains.compose:org.jetbrains.compose.gradle.plugin", version.ref = "composeKmp" }
-#maven-publish-gradle = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "maven-publish" }
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
@@ -152,11 +124,6 @@ ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", versi
 ktor-http = { module = "io.ktor:ktor-http", version.ref = "ktor" }
 
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
-
-gms-tag-manager = { group = "com.google.android.gms", name = "play-services-tagmanager", version = "18.3.0" }
-
-
-java-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaInject" }
 
 compose-animation = { group = "org.jetbrains.compose.animation", name = "animation", version.ref = "composeKmp" }
 compose-animationGraphics = { group = "org.jetbrains.compose.animation", name = "animation-graphics", version.ref = "composeKmp" }
@@ -215,55 +182,14 @@ kmp-media-compose = { module = "dev.icerock.moko:media-compose", version = "0.11
 
 kmp-connectivity-status = { module = "com.github.ln-12:multiplatform-connectivity-status", version = "1.3.0" }
 
-kmp-debug-menu = { module = "io.github.chopyourbrain:kontrol-android", version = "0.1.3" }
-
-kmp-webview = { module = "io.github.KevinnZou:compose-webview", version = "0.33.3" }
-
 kmp-reveal = { module = "com.svenjacobs.reveal:reveal-core", version = "4.0.0" }
 
 kmp-reach-editor = { module = "com.mohamedrejeb.richeditor:richeditor-compose", version = "1.0.0-rc13" }
 
 kmp-uri = { module = "com.eygraber:uri-kmp", version = "0.0.21" }
 
-kmp-encoding = { module = "com.diglol.encoding:encoding-kmp", version = "0.3.0" }
-
-kmp-calendar = { module = "com.kizitonwose.calendar:compose-multiplatform", version.ref = "kizitonwoseCalendar" }
-
-# https://github.com/KoalaPlot/koalaplot-core
-# alternative
-kmp-charts = { module = "io.github.thechance101:chart", version = "1.1.0" }
-
-compose-bignum = { group = "com.ionspin.kotlin", name = "bignum", version = "0.3.10" }
-
-auth = { group = "androidx.credentials", name = "credentials", version.ref = "auth" }
-auth-play = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "authPlay" }
-auth-identity = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "authIdentity" }
-gms-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "gmsAuth" }
-
-#// https://firebase.google.com/docs/android/setup#available-libraries
-firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
-firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
-firebase-installations = { group = "com.google.firebase", name = "firebase-installations" }
-firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
-firebase-inappmessaging = { group = "com.google.firebase", name = "firebase-inappmessaging" }
-firebase-inappmessaging-display = { group = "com.google.firebase", name = "firebase-inappmessaging-display" }
-firebase-config = { module = "com.google.firebase:firebase-config" }
-
-play-asset-delivery = { group = "com.google.android.play", name = "asset-delivery", version.ref = "playAssetDelivery" }
-play-asset-delivery-ktx = { group = "com.google.android.play", name = "asset-delivery-ktx", version.ref = "playAssetDelivery" }
-play-feature-delivery = { group = "com.google.android.play", name = "feature-delivery", version.ref = "playFeatureDelivery" }
-play-feature-delivery-ktx = { group = "com.google.android.play", name = "feature-delivery-ktx", version.ref = "playFeatureDelivery" }
-play-inapp-review = { group = "com.google.android.play", name = "review", version.ref = "playInAppReview" }
-play-inapp-review-ktx = { group = "com.google.android.play", name = "review-ktx", version.ref = "playInAppReview" }
-play-inapp-update = { group = "com.google.android.play", name = "app-update", version.ref = "playInAppUpdate" }
-play-inapp-update-ktx = { group = "com.google.android.play", name = "app-update-ktx", version.ref = "playInAppUpdate" }
-
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-
-facebook = { group = "com.facebook.android", name = "facebook-android-sdk", version.ref = "facebook" }
 
 reactive-kotlin = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "reactiveAndroid" }
 reactive-java = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "reactiveJava" }
@@ -278,30 +204,10 @@ graphql-java = { group = "com.graphql-java", name = "graphql-java", version.ref 
 
 shimmer = { group = "com.valentinilk.shimmer", name = "compose-shimmer", version = "1.3.3" }
 
-androidx-security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCryptoKtx" }
-tint-crypto = { group = "com.google.crypto.tink", name = "tink-android", version.ref = "tinkCrypto" }
-
-apollo-api = { group = "com.apollographql.apollo", name = "apollo-api", version.ref = "apollo" }
-apollo-runtime = { group = "com.apollographql.apollo", name = "apollo-runtime", version.ref = "apollo" }
-apollo-tooling = { group = "com.apollographql.apollo", name = "apollo-tooling", version.ref = "apollo" }
-apollo-normalized-cache = { group = "com.apollographql.apollo", name = "apollo-normalized-cache", version.ref = "apollo" }
-apollo-normalized-cache-sqlite = { group = "com.apollographql.apollo", name = "apollo-normalized-cache-sqlite", version.ref = "apollo" }
-
-work-manager = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workManager" }
-
-accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version = "0.37.3" }
-
-intercom = { group = "io.intercom.android", name = "intercom-sdk", version = "17.3.1" }
-
-appsflyer = { group = "com.appsflyer", name = "af-android-sdk", version = "6.17.5" }
 installreferrer = { group = "com.android.installreferrer", name = "installreferrer", version = "2.2" }
 androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
 androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
 androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "profileinstaller" }
-
-clarity = { group = "com.microsoft.clarity", name = "clarity-compose", version = "3.7.0" }
-wasaby = { group = "jp.wasabeef", name = "blurry", version = "4.0.1" }
-cloudy = { group = "com.github.skydoves", name = "cloudy", version = "0.2.7" }
 
 androidx-browser = { group = "androidx.browser", name = "browser", version = "1.9.0" }
 android-browser-helper = { group = "com.google.androidbrowserhelper", name = "androidbrowserhelper", version = "2.6.2" }
@@ -364,18 +270,13 @@ parcelize = { id = "kotlin-parcelize" }
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose" }
-gms = { id = "com.google.gms.google-services", version.ref = "gms" }
-crashlitycs = { id = "com.google.firebase.crashlytics", version.ref = "pluginCrashlytics" }
-apollo = { id = "com.apollographql.apollo", version.ref = "apollo" }
 android-library = { id = "com.android.kotlin.multiplatform.library" }
-google-firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "googleFirebaseAppdistribution" }
 android-test = { id = "com.android.test", version.ref = "agp" }
 baselineprofile = { id = "androidx.baselineprofile", version.ref = "baselineprofile" }
 
 composeMultiplatform = { id = "org.jetbrains.compose" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform" }
 cocoaPods = { id = "org.jetbrains.kotlin.native.cocoapods" }
-googleRelay = { id = "com.google.relay", version="0.3.12" }
 
 atomic = { id = "org.jetbrains.kotlinx.atomicfu", version="0.26.0" }
 
