@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.catsoft.adaptivechat.model.Agent
 import com.catsoft.adaptivechat.model.Conversation
 import com.catsoft.adaptivechat.service.DataRepository
+import com.catsoft.adaptivechat.util.IdGenerator
 import kotlinx.coroutines.flow.StateFlow
-import kotlin.random.Random
 
 class AgentsViewModel(
     private val dataRepository: DataRepository
@@ -14,7 +14,7 @@ class AgentsViewModel(
     val agents: StateFlow<List<Agent>> = dataRepository.agents
     
     fun createNewConversation(agent: Agent): String {
-        val conversationId = Random.nextLong().toString()
+        val conversationId = IdGenerator.generate()
         val conversation = Conversation(
             id = conversationId,
             title = "Chat with ${agent.name}",

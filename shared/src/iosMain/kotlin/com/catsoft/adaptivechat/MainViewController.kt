@@ -6,7 +6,7 @@ import platform.UIKit.UIViewController
 fun MainViewController(): UIViewController {
     return ComposeUIViewController {
         App(
-            geminiApiKey = "YOUR_GEMINI_API_KEY_HERE",
+            geminiApiKey = "PLEASE_ADD_YOUR_GEMINI_API_KEY_HERE",
             onVoiceInput = {
                 // Handle voice input - would use iOS AVAudioRecorder
             },
