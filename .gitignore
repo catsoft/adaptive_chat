@@ -50,3 +50,4 @@ DerivedData/
 .DS_Store
 
 /gradle/
+/.kotlin/
