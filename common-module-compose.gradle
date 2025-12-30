@@ -1,0 +1,18 @@
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.bundles.compose.full)
+            implementation(libs.kmp.prefs)
+
+            api(libs.koin.compose)
+            api(libs.koin.compose.viewModel)
+            api(libs.koin.compose.viewModel.navigation)
+            implementation(libs.saved.state)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.compose.tooling)
+            implementation(libs.compose.tooling.preview)
+        }
+    }
+}

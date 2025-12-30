@@ -1,5 +1,5 @@
 rootProject.name = "AdaptiveChat"
-
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     repositories {
@@ -37,5 +37,5 @@ dependencyResolutionManagement {
     }
 }
 
-include(":androidApp")
+include(":composeApp")
 include(":shared")

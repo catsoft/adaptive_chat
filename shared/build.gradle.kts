@@ -1,52 +1,73 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.kotlin.multiplatform.library")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.android.library)
+    id("configure-library")
+    alias(libs.plugins.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.compose.compiler)
 }
 
+apply(from = "../common-module-compose.gradle")
+apply(from = "../common-pagings.gradle")
+apply(from = "../common-connectivity.gradle")
+apply(from = "../common-ktor.gradle")
+
 kotlin {
-    jvmToolchain(17)
-    
-    androidLibrary {
-        namespace = "com.catsoft.adaptivechat"
-        compileSdk = 36
-        minSdk = 24
-    }
-
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "shared"
-            isStatic = true
-        }
-    }
-
     sourceSets {
         commonMain.dependencies {
-            implementation("org.jetbrains.compose.runtime:runtime:1.10.0-rc02")
-            implementation("org.jetbrains.compose.foundation:foundation:1.10.0-rc02")
-            implementation("org.jetbrains.compose.components:components-resources:1.10.0-rc02")
-            
-            // Ktor for networking
-            implementation("io.ktor:ktor-client-core:2.3.5")
-            implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
-            
-            // Kotlinx serialization
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
-            
-            // Coroutines
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+            api(libs.kmp.media)
+            api(libs.kmp.media.compose)
+
+            api(libs.libphonenumber)
+            api(libs.kmp.locale)
+            api(libs.kmp.permissions)
+
+            api(libs.kmp.reveal)
+            api(libs.kmp.reach.editor)
+            api(libs.kmp.uri)
+            api(libs.room.runtime)
+
+            api(libs.kotlinx.datetime)
+
+            api(libs.human.readable)
+
+            api(libs.ui.backhandler)
+
+            api(libs.shimmer)
+
+            api(libs.kmp.coil.compose)
+            api(libs.kmp.coil.network.core)
+            api(libs.kmp.coil.network.ktor3)
+
+            api(libs.compottie)
+            api(libs.compottie.dot)
+            api(libs.compottie.network)
+            api(libs.compottie.resources)
+
+            api(libs.kmp.currency)
+            api(libs.kmp.country)
+
+            api(libs.kmp.permissions)
+            api(libs.kmp.permissions.compose)
+            api(libs.kmp.permissions.bluetooth)
+            api(libs.kmp.permissions.camera)
+            api(libs.kmp.permissions.contacts)
+            api(libs.kmp.permissions.gallery)
+            api(libs.kmp.permissions.location)
+            api(libs.kmp.permissions.microphone)
+            api(libs.kmp.permissions.motion)
+            api(libs.kmp.permissions.notifications)
+            api(libs.kmp.permissions.storage)
+
+            api(libs.bundles.fileKit)
         }
 
         androidMain.dependencies {
-            implementation("io.ktor:ktor-client-android:2.3.5")
-            implementation("androidx.activity:activity-compose:1.8.0")
-        }
-        
-        iosMain.dependencies {
-            implementation("io.ktor:ktor-client-darwin:2.3.5")
+            implementation(libs.androidx.security.crypto.ktx)
+
+            implementation(libs.androidx.browser)
+            implementation(libs.android.browser.helper)
         }
     }
 }
