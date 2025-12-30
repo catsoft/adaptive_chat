@@ -1,21 +1,21 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization").version("1.9.20")
-    id("com.android.library")
+    kotlin("plugin.serialization")
+    id("com.android.kotlin.multiplatform.library")
     id("org.jetbrains.compose")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
-        }
+    jvmToolchain(24)
+    
+    androidLibrary {
+        namespace = "com.catsoft.adaptivechat"
+        compileSdk = 36
+        minSdk = 24
     }
     
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
@@ -26,63 +26,34 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
-                
-                // Ktor for networking
-                implementation("io.ktor:ktor-client-core:2.3.5")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
-                
-                // Kotlinx serialization
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
-                
-                // Coroutines
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-                
-                // ViewModel
-                implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-            }
-        }
-        
-        val androidMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-android:2.3.5")
-                implementation("androidx.activity:activity-compose:1.8.0")
-            }
-        }
-        
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+        commonMain.dependencies {
+            implementation("org.jetbrains.compose.runtime:runtime:1.10.0-rc02")
+            implementation("org.jetbrains.compose.foundation:foundation:1.10.0-rc02")
+            implementation("org.jetbrains.compose.material3:material3:1.10.0-rc02")
+            implementation("org.jetbrains.compose.components:components-resources:1.10.0-rc02")
             
-            dependencies {
-                implementation("io.ktor:ktor-client-darwin:2.3.5")
-            }
+            // Ktor for networking
+            implementation("io.ktor:ktor-client-core:2.3.5")
+            implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
+            
+            // Kotlinx serialization
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+            
+            // Coroutines
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+            
+            // ViewModel
+            implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
         }
-    }
-}
-
-android {
-    namespace = "com.catsoft.adaptivechat"
-    compileSdk = 34
-    
-    defaultConfig {
-        minSdk = 24
-    }
-    
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        
+        androidMain.dependencies {
+            implementation("io.ktor:ktor-client-android:2.3.5")
+            implementation("androidx.activity:activity-compose:1.8.0")
+        }
+        
+        iosMain.dependencies {
+            implementation("io.ktor:ktor-client-darwin:2.3.5")
+        }
     }
 }

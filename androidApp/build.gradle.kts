@@ -1,27 +1,23 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
     id("org.jetbrains.compose")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
     namespace = "com.catsoft.adaptivechat.android"
-    compileSdk = 34
+    compileSdk = 36
     
     defaultConfig {
         applicationId = "com.catsoft.adaptivechat.android"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
     
     buildFeatures {
         compose = true
-    }
-    
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
     }
     
     packaging {
@@ -37,12 +33,12 @@ android {
     }
     
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_23
+        targetCompatibility = JavaVersion.VERSION_23
     }
     
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        jvmToolchain(23)
     }
 }
 

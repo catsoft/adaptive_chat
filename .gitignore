@@ -49,3 +49,4 @@ DerivedData/
 # macOS
 .DS_Store
 
+/gradle/
