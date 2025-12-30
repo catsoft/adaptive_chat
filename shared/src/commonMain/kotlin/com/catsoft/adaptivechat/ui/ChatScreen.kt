@@ -18,9 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.catsoft.adaptivechat.model.Message
 import com.catsoft.adaptivechat.model.MessageType
 import com.catsoft.adaptivechat.viewmodel.ChatViewModel
+import com.catsoft.adaptivechat.platform.formatTimestamp
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -249,9 +248,4 @@ fun MessageBubble(message: Message) {
             }
         }
     }
-}
-
-private fun formatTimestamp(timestamp: Long): String {
-    val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
-    return sdf.format(Date(timestamp))
 }

@@ -18,8 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.catsoft.adaptivechat.model.Conversation
 import com.catsoft.adaptivechat.viewmodel.ConversationsViewModel
-import java.text.SimpleDateFormat
-import java.util.*
+import com.catsoft.adaptivechat.platform.formatDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -153,21 +152,6 @@ fun ConversationItem(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-        }
-    }
-}
-
-private fun formatDate(timestamp: Long): String {
-    val now = System.currentTimeMillis()
-    val diff = now - timestamp
-    
-    return when {
-        diff < 60000 -> "Just now"
-        diff < 3600000 -> "${diff / 60000}m ago"
-        diff < 86400000 -> "${diff / 3600000}h ago"
-        else -> {
-            val sdf = SimpleDateFormat("MMM dd", Locale.getDefault())
-            sdf.format(Date(timestamp))
         }
     }
 }
