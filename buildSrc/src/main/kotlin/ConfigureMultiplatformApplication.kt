@@ -4,7 +4,7 @@ import org.gradle.api.Project
 class ConfigureMultiplatformApplication : Plugin<Project> {
     override fun apply(project: Project) = with(project) {
         configureKmpCompilerOptions()
-        configureAndroidKmpTarget()
+        configureAndroidKmpTarget(isLibrary = false)
         configureKotlinKeychain()
         configureAndroidBase()
         configureComposeResources()

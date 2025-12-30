@@ -367,7 +367,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose" }
 gms = { id = "com.google.gms.google-services", version.ref = "gms" }
 crashlitycs = { id = "com.google.firebase.crashlytics", version.ref = "pluginCrashlytics" }
 apollo = { id = "com.apollographql.apollo", version.ref = "apollo" }
-android-library = { id = "com.android.library" }
+android-library = { id = "com.android.kotlin.multiplatform.library" }
 google-firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "googleFirebaseAppdistribution" }
 android-test = { id = "com.android.test", version.ref = "agp" }
 baselineprofile = { id = "androidx.baselineprofile", version.ref = "baselineprofile" }

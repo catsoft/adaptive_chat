@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.androidLibrary
 import java.util.Properties
 
 plugins {
@@ -11,6 +12,7 @@ plugins {
 apply(from = "../common-pagings.gradle")
 apply(from = "../common-connectivity.gradle")
 apply(from = "../common-module-compose.gradle")
+apply(from = "../common-ktor.gradle")
 
 val appVersionName: String by rootProject.extra
 val appVersionCode: Int by rootProject.extra

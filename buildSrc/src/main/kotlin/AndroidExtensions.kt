@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalKotlinGradlePluginApi::class)
 
+import com.android.build.api.dsl.androidLibrary
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -37,11 +38,20 @@ fun Project.configureKmpCompilerOptions(
     }
 }
 
-fun Project.configureAndroidKmpTarget(jvmTarget: JvmTarget = JvmTarget.JVM_24) {
+fun Project.configureAndroidKmpTarget(jvmTarget: JvmTarget = JvmTarget.JVM_24, isLibrary: Boolean) {
     configure<KotlinMultiplatformExtension> {
-        androidTarget {
-            compilerOptions {
-                this.jvmTarget.set(jvmTarget)
+        if (isLibrary) {
+            androidLibrary {
+                compileSdk = Configs.Android.COMPILE_SDK
+                compilerOptions {
+                    this.jvmTarget.set(jvmTarget)
+                }
+            }
+        } else {
+            androidTarget {
+                compilerOptions {
+                    this.jvmTarget.set(jvmTarget)
+                }
             }
         }
     }
