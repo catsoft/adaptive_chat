@@ -28,7 +28,7 @@ fun Project.configureTargets(withBaseName: Boolean = true) {
 
 fun Project.configureModuleNamespace() {
     extensions.findByType<com.android.build.gradle.BaseExtension>()?.apply {
-        namespace = "com.chatfuel.${getFormattedName()}"
+        namespace = "com.adaptivechat.${getFormattedName()}"
     }
 
     println("Module ${project.name} -> namespace: ${getFormattedName()}")
@@ -39,12 +39,12 @@ fun Project.configureComposeResources() {
     pluginManager.withPlugin("org.jetbrains.compose") {
         extensions.getByType<ComposeExtension>().extensions.configure<ResourcesExtension>() {
             publicResClass = true
-            packageOfResClass = "com.chatfuel.${this@configureComposeResources.getFormattedName()}.resources"
+            packageOfResClass = "com.adaptivechat.${this@configureComposeResources.getFormattedName()}.resources"
             generateResClass = always
         }
     }
 
-    println("Compose resources package: com.chatfuel.${getFormattedName()}.resources")
+    println("Compose resources package: com.adaptivechat.${getFormattedName()}.resources")
 }
 
 fun Project.getFormattedName(): String = when {
