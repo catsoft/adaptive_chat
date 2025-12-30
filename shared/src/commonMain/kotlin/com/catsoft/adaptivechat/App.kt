@@ -19,7 +19,7 @@ sealed class Screen {
 
 @Composable
 fun App(
-    geminiApiKey: String = "YOUR_API_KEY_HERE",
+    geminiApiKey: String = "PLEASE_ADD_YOUR_GEMINI_API_KEY_HERE",
     onVoiceInput: () -> Unit = {},
     onImageInput: (callback: (ByteArray) -> Unit) -> Unit = {},
     onDocumentInput: (callback: (ByteArray, String) -> Unit) -> Unit = {}

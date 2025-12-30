@@ -7,11 +7,11 @@ import com.catsoft.adaptivechat.model.Message
 import com.catsoft.adaptivechat.model.MessageType
 import com.catsoft.adaptivechat.service.DataRepository
 import com.catsoft.adaptivechat.service.GeminiService
+import com.catsoft.adaptivechat.util.IdGenerator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 class ChatViewModel(
     private val geminiService: GeminiService,
@@ -39,7 +39,7 @@ class ChatViewModel(
         if (text.isBlank()) return
         
         val userMessage = Message(
-            id = generateId(),
+            id = IdGenerator.generate(),
             content = text,
             timestamp = System.currentTimeMillis(),
             isFromUser = true,
@@ -72,7 +72,7 @@ class ChatViewModel(
     
     fun sendVoiceMessage(audioData: ByteArray) {
         val userMessage = Message(
-            id = generateId(),
+            id = IdGenerator.generate(),
             content = "Voice message",
             timestamp = System.currentTimeMillis(),
             isFromUser = true,
@@ -96,7 +96,7 @@ class ChatViewModel(
     
     fun sendImageMessage(imageData: ByteArray) {
         val userMessage = Message(
-            id = generateId(),
+            id = IdGenerator.generate(),
             content = "Image uploaded",
             timestamp = System.currentTimeMillis(),
             isFromUser = true,
@@ -120,7 +120,7 @@ class ChatViewModel(
     
     fun sendDocumentMessage(documentData: ByteArray, fileName: String) {
         val userMessage = Message(
-            id = generateId(),
+            id = IdGenerator.generate(),
             content = "Document: $fileName",
             timestamp = System.currentTimeMillis(),
             isFromUser = true,
@@ -144,9 +144,5 @@ class ChatViewModel(
     
     private fun updateConversation() {
         dataRepository.updateConversation(conversationId, _messages.value)
-    }
-    
-    private fun generateId(): String {
-        return Random.nextLong().toString()
     }
 }

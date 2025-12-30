@@ -2,6 +2,7 @@ package com.catsoft.adaptivechat.service
 
 import com.catsoft.adaptivechat.model.Message
 import com.catsoft.adaptivechat.model.MessageType
+import com.catsoft.adaptivechat.util.IdGenerator
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -11,7 +12,6 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.delay
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import kotlin.random.Random
 
 @Serializable
 data class GeminiRequest(
@@ -99,17 +99,20 @@ class GeminiService(private val apiKey: String) {
                 ?: "Sorry, I couldn't generate a response."
             
             return Message(
-                id = generateId(),
+                id = IdGenerator.generate(),
                 content = responseText,
                 timestamp = System.currentTimeMillis(),
                 isFromUser = false,
                 type = MessageType.TEXT
             )
         } catch (e: Exception) {
-            // Return error message
+            // Log the detailed error for debugging (in production, use proper logging)
+            println("Gemini API Error: ${e.message}")
+            
+            // Return user-friendly error message
             return Message(
-                id = generateId(),
-                content = "Error: ${e.message ?: "Failed to get response from AI"}",
+                id = IdGenerator.generate(),
+                content = "Sorry, I couldn't process your request. Please try again.",
                 timestamp = System.currentTimeMillis(),
                 isFromUser = false,
                 type = MessageType.TEXT
@@ -135,9 +138,5 @@ class GeminiService(private val apiKey: String) {
         // Placeholder for document processing
         delay(500)
         return "Document '$fileName' received (processing would happen here)"
-    }
-    
-    private fun generateId(): String {
-        return Random.nextLong().toString()
     }
 }

@@ -11,7 +11,7 @@ class MainActivity : ComponentActivity() {
         
         setContent {
             App(
-                geminiApiKey = "YOUR_GEMINI_API_KEY_HERE",
+                geminiApiKey = "PLEASE_ADD_YOUR_GEMINI_API_KEY_HERE",
                 onVoiceInput = {
                     // Handle voice input - would launch voice recorder
                 },
