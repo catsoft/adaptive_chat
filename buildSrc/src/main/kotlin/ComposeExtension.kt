@@ -19,7 +19,7 @@ fun Project.configureTargets(withBaseName: Boolean = true) {
     val targets = project.findProperty("targets")?.toString()?.split(",")?.map { it.trim() }.orEmpty()
 
     if (targets.contains("android")) {
-        configureAndroidKmpTarget(isLibrary = !withBaseName)
+        configureAndroidKmpTarget(isLibrary = withBaseName)
     }
     if (targets.contains("ios")) {
         configureIosKmpTargets(withBaseName = withBaseName)

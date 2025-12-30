@@ -33,6 +33,8 @@ kotlin {
         }
 
         commonMain.dependencies {
+//            api(":shared")
+
             implementation(libs.bundles.compose.full)
 
             implementation(libs.apollo.runtime)
