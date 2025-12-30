@@ -15,10 +15,10 @@ class MainActivity : ComponentActivity() {
                 onVoiceInput = {
                     // Handle voice input - would launch voice recorder
                 },
-                onImageInput = { ->
+                onImageInput = {
                     // Handle image input - would launch image picker
                 },
-                onDocumentInput = { ->
+                onDocumentInput = {
                     // Handle document input - would launch document picker
                 }
             )
