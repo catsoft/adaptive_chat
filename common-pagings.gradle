@@ -1,0 +1,18 @@
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.paging.common)
+            implementation(libs.paging.compose.common)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.paging.ios)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.paging.android.compose)
+            implementation(libs.paging.android.runtime)
+            implementation(libs.paging.android.common)
+        }
+    }
+}
