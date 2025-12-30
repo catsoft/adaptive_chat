@@ -1,7 +1,5 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.compose")
-    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -35,10 +33,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_23
         targetCompatibility = JavaVersion.VERSION_23
-    }
-    
-    kotlin {
-        jvmToolchain(23)
     }
 }
 

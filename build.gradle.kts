@@ -14,14 +14,21 @@ buildscript {
 }
 
 plugins {
-    // this is necessary to avoid the plugins to be loaded multiple times
-    // in each subproject's classloader
-    kotlin("multiplatform").version("2.3.0").apply(false)
-    kotlin("plugin.serialization").version("2.3.0").apply(false)
-    id("com.android.application").version("9.0.0-rc01").apply(false)
-    id("com.android.kotlin.multiplatform.library").version("9.0.0-rc01").apply(false)
-    id("org.jetbrains.compose").version("1.10.0-rc02").apply(false)
-    id("org.jetbrains.kotlin.plugin.compose").version("2.3.0").apply(false)
+//    alias(libs.plugins.android.application) apply false
+//    alias(libs.plugins.jetbrains.kotlin.android) apply false
+//    alias(libs.plugins.compose.compiler) apply false
+//    alias(libs.plugins.googleRelay) apply false
+//
+//    alias(libs.plugins.gms) apply false
+//    alias(libs.plugins.crashlitycs) apply false
+//    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
+//    alias(libs.plugins.android.library) apply false
+//    alias(libs.plugins.google.firebase.appdistribution) apply false
+//    alias(libs.plugins.baselineprofile) apply false
+//
+//    alias(libs.plugins.composeMultiplatform) apply false
+//    alias(libs.plugins.kotlinMultiplatform) apply false
+//    alias(libs.plugins.cocoaPods) apply false
 }
 
 tasks.register("clean", Delete::class) {
