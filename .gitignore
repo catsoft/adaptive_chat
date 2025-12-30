@@ -32,3 +32,22 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# iOS specific
+*.xcodeproj
+*.xcworkspace
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+
+# macOS
+.DS_Store
+
+/gradle/
+/.kotlin/
