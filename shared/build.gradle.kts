@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.atomic)
 }
 
 apply(from = "../common-module-compose.gradle")
