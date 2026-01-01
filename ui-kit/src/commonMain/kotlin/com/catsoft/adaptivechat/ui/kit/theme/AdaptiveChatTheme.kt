@@ -11,29 +11,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFF2D2D2D),              // Dark gray primary
-    onPrimary = Color.White,
-    primaryContainer = Color(0xFFF7F7F8),     // Very light gray container
-    onPrimaryContainer = Color(0xFF2D2D2D),   // Dark text on light
-    secondary = Color(0xFF6B6B6B),            // Medium gray
-    onSecondary = Color.White,
-    secondaryContainer = Color(0xFFF7F7F8),   // Light gray background
-    onSecondaryContainer = Color(0xFF2D2D2D), // Dark text
-    tertiary = Color(0xFF8B8B8B),             // Light gray accent
-    onTertiary = Color.White,
-    background = Color(0xFFFFFFFF),           // Pure white
-    onBackground = Color(0xFF2D2D2D),         // Dark text
-    surface = Color(0xFFFAFAFA),              // Very light gray surface
-    onSurface = Color(0xFF2D2D2D),            // Dark text
-    surfaceVariant = Color(0xFFF0F0F0),       // Light gray variant
-    onSurfaceVariant = Color(0xFF6B6B6B),     // Medium gray text
-    error = Color(0xFFD14343),                // Red error
-    onError = Color.White,
-    outline = Color(0xFFE0E0E0),              // Border gray
-    outlineVariant = Color(0xFFEDEDED),       // Light border
-)
-
-private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFFECECEC),              // Light gray primary
     onPrimary = Color(0xFF1A1A1A),            // Very dark text
     primaryContainer = Color(0xFF2F2F2F),     // Dark gray container
@@ -54,6 +31,29 @@ private val DarkColorScheme = darkColorScheme(
     onError = Color.White,                    // White on error
     outline = Color(0xFF4A4A4A),              // Border
     outlineVariant = Color(0xFF3A3A3A),       // Subtle border
+)
+
+private val DarkColorScheme = darkColorScheme(
+    primary = Color(0xFF2D2D2D),              // Dark gray primary
+    onPrimary = Color.White,
+    primaryContainer = Color(0xFFF7F7F8),     // Very light gray container
+    onPrimaryContainer = Color(0xFF2D2D2D),   // Dark text on light
+    secondary = Color(0xFF6B6B6B),            // Medium gray
+    onSecondary = Color.White,
+    secondaryContainer = Color(0xFFF7F7F8),   // Light gray background
+    onSecondaryContainer = Color(0xFF2D2D2D), // Dark text
+    tertiary = Color(0xFF8B8B8B),             // Light gray accent
+    onTertiary = Color.White,
+    background = Color(0xFFFFFFFF),           // Pure white
+    onBackground = Color(0xFF2D2D2D),         // Dark text
+    surface = Color(0xFFFAFAFA),              // Very light gray surface
+    onSurface = Color(0xFF2D2D2D),            // Dark text
+    surfaceVariant = Color(0xFFF0F0F0),       // Light gray variant
+    onSurfaceVariant = Color(0xFF6B6B6B),     // Medium gray text
+    error = Color(0xFFD14343),                // Red error
+    onError = Color.White,
+    outline = Color(0xFFE0E0E0),              // Border gray
+    outlineVariant = Color(0xFFEDEDED),       // Light border
 )
 
 private val Typography = androidx.compose.material3.Typography(
