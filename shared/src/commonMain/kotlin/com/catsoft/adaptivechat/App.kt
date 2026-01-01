@@ -7,6 +7,7 @@ import com.catsoft.adaptivechat.service.GeminiService
 import com.catsoft.adaptivechat.ui.AgentsScreen
 import com.catsoft.adaptivechat.ui.ChatScreen
 import com.catsoft.adaptivechat.ui.ConversationsScreen
+import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 import com.catsoft.adaptivechat.viewmodel.AgentsViewModel
 import com.catsoft.adaptivechat.viewmodel.ChatViewModel
 import com.catsoft.adaptivechat.viewmodel.ConversationsViewModel
@@ -24,7 +25,7 @@ fun App(
     onImageInput: (callback: (ByteArray) -> Unit) -> Unit = {},
     onDocumentInput: (callback: (ByteArray, String) -> Unit) -> Unit = {}
 ) {
-    MaterialTheme {
+    AdaptiveChatTheme {
         var currentScreen by remember { mutableStateOf<Screen>(Screen.Conversations) }
         
         // Initialize services and repository
