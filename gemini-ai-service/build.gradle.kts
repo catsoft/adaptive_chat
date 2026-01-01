@@ -9,6 +9,7 @@ plugins {
 }
 
 apply(from = "../common-ktor.gradle")
+apply(from = "../common-module-compose.gradle")
 
 kotlin {
     sourceSets {
