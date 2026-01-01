@@ -3,7 +3,7 @@ package com.catsoft.adaptivechat.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.catsoft.adaptivechat.App
+import com.catsoft.adaptivechat.composeApp.App
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

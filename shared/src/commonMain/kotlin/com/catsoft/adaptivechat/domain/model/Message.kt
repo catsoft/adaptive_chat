@@ -1,4 +1,4 @@
-package com.catsoft.adaptivechat.model
+package com.catsoft.adaptivechat.domain.model
 
 import kotlinx.serialization.Serializable
 
