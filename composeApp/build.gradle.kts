@@ -28,7 +28,20 @@ kotlin {
         }
 
         commonMain.dependencies {
-            api(projects.shared)
+            implementation(projects.shared)
+            implementation(projects.sharedApi)
+
+            implementation(projects.chat)
+            implementation(projects.chatApi)
+
+            implementation(projects.agent)
+            api(projects.agentApi)
+
+            implementation(projects.conversation)
+            implementation(projects.conversationApi)
+
+            implementation(projects.aiService)
+            implementation(projects.geminiAiService)
 
             implementation(libs.bundles.compose.full)
 

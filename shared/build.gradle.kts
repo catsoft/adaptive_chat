@@ -16,6 +16,11 @@ apply(from = "../common-ktor.gradle")
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            api(projects.sharedApi)
+            api(projects.localization)
+            api(projects.uiKit)
+            api(projects.uiKitApi)
+
             api(libs.kmp.media)
             api(libs.kmp.media.compose)
 
