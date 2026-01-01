@@ -7,10 +7,10 @@ import com.catsoft.adaptivechat.navigation.Screen
 import com.catsoft.adaptivechat.presentation.ui.AgentsScreen
 import com.catsoft.adaptivechat.presentation.ui.ChatScreen
 import com.catsoft.adaptivechat.presentation.ui.ConversationsScreen
-import com.catsoft.adaptivechat.presentation.ui.kit.theme.AdaptiveChatTheme
 import com.catsoft.adaptivechat.presentation.viewmodel.AgentsViewModel
 import com.catsoft.adaptivechat.presentation.viewmodel.ChatViewModel
 import com.catsoft.adaptivechat.presentation.viewmodel.ConversationsViewModel
+import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 
 @Composable
 fun App(
