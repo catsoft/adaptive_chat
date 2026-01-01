@@ -1,4 +1,4 @@
-package com.catsoft.adaptivechat.ui
+package com.catsoft.adaptivechat.presentation.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.catsoft.adaptivechat.model.Message
-import com.catsoft.adaptivechat.model.MessageType
-import com.catsoft.adaptivechat.viewmodel.ChatViewModel
+import com.catsoft.adaptivechat.domain.model.Message
+import com.catsoft.adaptivechat.domain.model.MessageType
+import com.catsoft.adaptivechat.presentation.viewmodel.ChatViewModel
 import com.catsoft.adaptivechat.platform.formatTimestamp
 import kotlinx.coroutines.launch
 

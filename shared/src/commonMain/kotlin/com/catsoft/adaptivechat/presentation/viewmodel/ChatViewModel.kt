@@ -1,12 +1,12 @@
-package com.catsoft.adaptivechat.viewmodel
+package com.catsoft.adaptivechat.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.catsoft.adaptivechat.model.Conversation
-import com.catsoft.adaptivechat.model.Message
-import com.catsoft.adaptivechat.model.MessageType
-import com.catsoft.adaptivechat.service.DataRepository
-import com.catsoft.adaptivechat.service.GeminiService
+import com.catsoft.adaptivechat.data.DataRepository
+import com.catsoft.adaptivechat.data.GeminiService
+import com.catsoft.adaptivechat.domain.model.Conversation
+import com.catsoft.adaptivechat.domain.model.Message
+import com.catsoft.adaptivechat.domain.model.MessageType
 import com.catsoft.adaptivechat.util.IdGenerator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

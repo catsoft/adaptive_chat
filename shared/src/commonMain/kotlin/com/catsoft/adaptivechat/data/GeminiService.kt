@@ -1,7 +1,7 @@
-package com.catsoft.adaptivechat.service
+package com.catsoft.adaptivechat.data
 
-import com.catsoft.adaptivechat.model.Message
-import com.catsoft.adaptivechat.model.MessageType
+import com.catsoft.adaptivechat.domain.model.Message
+import com.catsoft.adaptivechat.domain.model.MessageType
 import com.catsoft.adaptivechat.util.IdGenerator
 import io.ktor.client.*
 import io.ktor.client.call.*

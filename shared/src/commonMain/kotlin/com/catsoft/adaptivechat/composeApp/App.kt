@@ -1,21 +1,16 @@
-package com.catsoft.adaptivechat
+package com.catsoft.adaptivechat.composeApp
 
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
-import com.catsoft.adaptivechat.service.DataRepository
-import com.catsoft.adaptivechat.service.GeminiService
-import com.catsoft.adaptivechat.ui.AgentsScreen
-import com.catsoft.adaptivechat.ui.ChatScreen
-import com.catsoft.adaptivechat.ui.ConversationsScreen
-import com.catsoft.adaptivechat.viewmodel.AgentsViewModel
-import com.catsoft.adaptivechat.viewmodel.ChatViewModel
-import com.catsoft.adaptivechat.viewmodel.ConversationsViewModel
-
-sealed class Screen {
-    object Conversations : Screen()
-    object Agents : Screen()
-    data class Chat(val conversationId: String, val agentId: String) : Screen()
-}
+import com.catsoft.adaptivechat.data.DataRepository
+import com.catsoft.adaptivechat.data.GeminiService
+import com.catsoft.adaptivechat.navigation.Screen
+import com.catsoft.adaptivechat.presentation.ui.AgentsScreen
+import com.catsoft.adaptivechat.presentation.ui.ChatScreen
+import com.catsoft.adaptivechat.presentation.ui.ConversationsScreen
+import com.catsoft.adaptivechat.presentation.viewmodel.AgentsViewModel
+import com.catsoft.adaptivechat.presentation.viewmodel.ChatViewModel
+import com.catsoft.adaptivechat.presentation.viewmodel.ConversationsViewModel
+import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 
 @Composable
 fun App(
@@ -24,7 +19,7 @@ fun App(
     onImageInput: (callback: (ByteArray) -> Unit) -> Unit = {},
     onDocumentInput: (callback: (ByteArray, String) -> Unit) -> Unit = {}
 ) {
-    MaterialTheme {
+    AdaptiveChatTheme {
         var currentScreen by remember { mutableStateOf<Screen>(Screen.Conversations) }
         
         // Initialize services and repository
