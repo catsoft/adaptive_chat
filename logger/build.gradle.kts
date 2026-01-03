@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
+apply(from = "../common-module-compose.gradle")
+
 kotlin {
 
     sourceSets {
