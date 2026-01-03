@@ -15,6 +15,7 @@ kotlin {
         commonMain.dependencies {
             api(projects.chatApi)
             api(projects.agentApi)
+            api(projects.conversationApi)
             implementation(projects.aiService)
             implementation(projects.uiKit)
             implementation(projects.shared)
