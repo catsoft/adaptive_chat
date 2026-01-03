@@ -15,23 +15,6 @@ import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 import kotlin.jvm.JvmSuppressWildcards
 import kotlin.reflect.KType
 
-/**
- * Навигационные анимации:
- *
- * enterTransition - вызывается когда ЭТОТ экран открывается (переход вперед)
- * exitTransition - вызывается когда с ЭТОГО экрана уходят на следующий (переход вперед)
- * popEnterTransition - вызывается когда на ЭТОТ экран возвращаются назад (по умолчанию = enterTransition)
- * popExitTransition - вызывается когда ЭТОТ экран закрывается (переход назад, по умолчанию = exitTransition)
- *
- * Пример:
- * Screen A -> Screen B:
- * - A.exitTransition выполняется для экрана A
- * - B.enterTransition выполняется для экрана B
- *
- * Screen B -> (back) -> Screen A:
- * - B.popExitTransition выполняется для экрана B
- * - A.popEnterTransition выполняется для экрана A
- */
 inline fun <reified T : Any> NavGraphBuilder.composableTheme(
     isDarkTheme: Boolean = false,
     typeMap: Map<KType, @JvmSuppressWildcards NavType<*>> = emptyMap(),
