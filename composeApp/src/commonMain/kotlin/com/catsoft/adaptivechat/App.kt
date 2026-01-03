@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.catsoft.adaptivechat.agent.navigation.agentNavigation
+import com.catsoft.adaptivechat.chat.navigation.chatNavigation
 import com.catsoft.adaptivechat.conversation.navigation.ConversationsScreens
 import com.catsoft.adaptivechat.conversation.navigtion.conversationNavigation
 import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
