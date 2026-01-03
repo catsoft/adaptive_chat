@@ -8,37 +8,17 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.Dp
 import com.catsoft.adaptivechat.logger.logger
+import com.catsoft.adaptivechat.logger.runLogCatching
 
 
 fun Modifier.clipToBounds(clip: Boolean) = this.graphicsLayer(clip = clip)
 
 fun Modifier.roundCorners(radius: Dp) = this.graphicsLayer(clip = true, shape = RoundedCornerShape(radius))
 
-
-fun Modifier.gray(enabled: Boolean, disabledTint: Color = neutral_100) = this.then(
-    if (enabled) Modifier
-    else Modifier.drawWithCache {
-        onDrawWithContent {
-            drawContent()
-            drawRect(disabledTint, blendMode = BlendMode.Saturation)
-        }
-    })
-
-fun Modifier.tint(enabled: Boolean, disabledTint: Color = neutral_100) = this.then(
-    if (enabled) Modifier
-    else Modifier.drawWithCache {
-        onDrawWithContent {
-            drawContent()
-            drawRect(disabledTint, blendMode = BlendMode.Hue)
-        }
-    })
 
 @Composable
 fun Modifier.clearFocusOnTap(): Modifier {
