@@ -1,7 +1,7 @@
 package com.catsoft.adaptivechat.gemini.ai.service
 
-import com.catsoft.adaptivechat.conversation.domain.Message
-import com.catsoft.adaptivechat.conversation.domain.MessageType
+import com.catsoft.adaptivechat.chat.api.model.Message
+import com.catsoft.adaptivechat.chat.api.model.MessageType
 import com.catsoft.adaptivechat.util.IdGenerator
 import io.ktor.client.*
 import io.ktor.client.call.*

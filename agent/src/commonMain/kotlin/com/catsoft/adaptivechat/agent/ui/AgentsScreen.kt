@@ -16,24 +16,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.catsoft.adaptivechat.agent.domain.Agent
 import com.catsoft.adaptivechat.agent.viewmodel.AgentsViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AgentsScreen(
-    viewModel: AgentsViewModel,
-    onAgentSelect: (String) -> Unit,
-    onBack: () -> Unit
-) {
-    val agents by viewModel.agents.collectAsState()
+fun AgentsScreen(viewModel: AgentsViewModel = koinViewModel()) {
+    val agents by viewModel.agents.collectAsStateWithLifecycle()
     
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Select an Agent") },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.ArrowBack, "Back")
                     }
                 },
@@ -57,7 +54,6 @@ fun AgentsScreen(
                     agent = agent,
                     onClick = {
                         val conversationId = viewModel.createNewConversation(agent)
-                        onAgentSelect(conversationId)
                     }
                 )
             }

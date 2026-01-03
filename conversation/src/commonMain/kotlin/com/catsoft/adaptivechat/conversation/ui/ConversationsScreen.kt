@@ -16,25 +16,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.catsoft.adaptivechat.conversation.domain.Conversation
 import com.catsoft.adaptivechat.conversation.viewmodel.ConversationsViewModel
 import com.catsoft.adaptivechat.platform.formatDate
+import org.koin.compose.viewmodel.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ConversationsScreen(
-    viewModel: ConversationsViewModel,
-    onConversationClick: (String) -> Unit,
-    onNavigateToAgents: () -> Unit
-) {
-    val conversations by viewModel.conversations.collectAsState()
+fun ConversationsScreen(viewModel: ConversationsViewModel = koinViewModel()) {
+    val conversations by viewModel.conversations.collectAsStateWithLifecycle()
     
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Conversations") },
                 actions = {
-                    IconButton(onClick = onNavigateToAgents) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.Menu, "Agents")
                     }
                 },
@@ -46,7 +43,7 @@ fun ConversationsScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = onNavigateToAgents
+                onClick = { }
             ) {
                 Icon(Icons.Default.Add, "New chat")
             }
@@ -93,7 +90,7 @@ fun ConversationsScreen(
                     items(conversations.sortedByDescending { it.timestamp }) { conversation ->
                         ConversationItem(
                             conversation = conversation,
-                            onClick = { onConversationClick(conversation.id) }
+                            onClick = {  }
                         )
                     }
                 }

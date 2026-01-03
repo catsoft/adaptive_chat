@@ -1,9 +1,7 @@
 package com.catsoft.adaptivechat.chat.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -12,26 +10,22 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.catsoft.adaptivechat.conversation.domain.Message
-import com.catsoft.adaptivechat.conversation.domain.MessageType
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.catsoft.adaptivechat.chat.api.navigation.ChatScreens
 import com.catsoft.adaptivechat.chat.viewmodel.ChatViewModel
 import com.catsoft.adaptivechat.platform.formatTimestamp
 import kotlinx.coroutines.launch
+import org.koin.compose.viewmodel.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChatScreen(
-    viewModel: ChatViewModel,
-    onBack: () -> Unit,
-    onVoiceInput: () -> Unit,
-    onImageInput: () -> Unit,
-    onDocumentInput: () -> Unit
+    screen: ChatScreens.Chat,
+    viewModel: ChatViewModel = koinViewModel()
 ) {
-    val messages by viewModel.messages.collectAsState()
-    val isLoading by viewModel.isLoading.collectAsState()
+    val messages by viewModel.messages.collectAsStateWithLifecycle()
+    val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
     var messageText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
     val scope = rememberCoroutineScope()
@@ -50,7 +44,7 @@ fun ChatScreen(
             TopAppBar(
                 title = { Text("AI Chat") },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.ArrowBack, "Back")
                     }
                 },
@@ -74,13 +68,13 @@ fun ChatScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        IconButton(onClick = onVoiceInput) {
+                        IconButton(onClick = { }) {
                             Icon(Icons.Default.Send, "Voice input")
                         }
-                        IconButton(onClick = onImageInput) {
+                        IconButton(onClick = { }) {
                             Icon(Icons.Default.Send, "Image input")
                         }
-                        IconButton(onClick = onDocumentInput) {
+                        IconButton(onClick = {  }) {
                             Icon(Icons.Default.Add, "Document input")
                         }
                     }
