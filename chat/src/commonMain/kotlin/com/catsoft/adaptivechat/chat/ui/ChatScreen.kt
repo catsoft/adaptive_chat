@@ -2,6 +2,7 @@ package com.catsoft.adaptivechat.chat.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -13,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.catsoft.adaptivechat.chat.api.model.Message
+import com.catsoft.adaptivechat.chat.api.model.MessageType
 import com.catsoft.adaptivechat.chat.api.navigation.ChatScreens
 import com.catsoft.adaptivechat.chat.viewmodel.ChatViewModel
 import com.catsoft.adaptivechat.platform.formatTimestamp
@@ -95,7 +98,6 @@ fun ChatScreen(
                         IconButton(
                             onClick = {
                                 if (messageText.isNotBlank()) {
-                                    viewModel.sendTextMessage(messageText)
                                     messageText = ""
                                 }
                             },
