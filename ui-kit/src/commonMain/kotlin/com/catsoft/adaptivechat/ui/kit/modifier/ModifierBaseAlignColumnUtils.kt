@@ -10,16 +10,16 @@ import androidx.compose.ui.Modifier
  * Shortcut for [Modifier.align] with [Alignment.Start]
  * @see androidx.compose.foundation.layout.ColumnScope.align
  */
-inline val ColumnScope.alignStart: Modifier get() = Modifier.align(Alignment.Start)
+inline val ColumnScope.alS: Modifier get() = Modifier.align(Alignment.Start)
 
 /**
  * Shortcut for [Modifier.align] with [Alignment.CenterHorizontally]
  * @see androidx.compose.foundation.layout.ColumnScope.align
  */
-inline val ColumnScope.alignCenterHorizontally: Modifier get() = Modifier.align(Alignment.CenterHorizontally)
+inline val ColumnScope.alCH: Modifier get() = Modifier.align(Alignment.CenterHorizontally)
 
 /**
  * Shortcut for [Modifier.align] with [Alignment.End]
  * @see androidx.compose.foundation.layout.ColumnScope.align
  */
-inline val ColumnScope.alignEnd: Modifier get() = Modifier.align(Alignment.End)
+inline val ColumnScope.alE: Modifier get() = Modifier.align(Alignment.End)

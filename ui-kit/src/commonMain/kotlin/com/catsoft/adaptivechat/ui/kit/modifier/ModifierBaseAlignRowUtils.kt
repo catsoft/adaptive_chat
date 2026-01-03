@@ -11,19 +11,19 @@ import androidx.compose.ui.Modifier
  * Shortcut for [Modifier.align] with [Alignment.CenterVertically]
  * @see androidx.compose.foundation.layout.RowScope.align
  */
-inline val RowScope.alignCenterVertically: Modifier get() = Modifier.align(Alignment.CenterVertically)
+inline val RowScope.alCV: Modifier get() = Modifier.align(Alignment.CenterVertically)
 
 /**
  * Shortcut for [Modifier.align] with [Alignment.Top]
  * @see androidx.compose.foundation.layout.RowScope.align
  */
-inline val RowScope.alignTop: Modifier get() = Modifier.align(Alignment.Top)
+inline val RowScope.alT: Modifier get() = Modifier.align(Alignment.Top)
 
 /**
  * Shortcut for [Modifier.align] with [Alignment.Bottom]
  * @see androidx.compose.foundation.layout.RowScope.align
  */
-inline val RowScope.alignBottom: Modifier get() = Modifier.align(Alignment.Bottom)
+inline val RowScope.alB: Modifier get() = Modifier.align(Alignment.Bottom)
 
 // Alignment shortcuts
 
