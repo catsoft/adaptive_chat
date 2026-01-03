@@ -7,6 +7,7 @@ import androidx.paging.ItemSnapshotList
 import app.cash.paging.LoadState
 import app.cash.paging.LoadStateError
 import app.cash.paging.compose.LazyPagingItems
+import com.catsoft.adaptivechat.logger.logger
 
 fun LoadState.isLoaded(): Boolean = this is androidx.paging.LoadState.NotLoading && this.endOfPaginationReached
 
