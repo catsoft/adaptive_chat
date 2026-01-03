@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.Dp
 import com.catsoft.adaptivechat.logger.logger
 import com.catsoft.adaptivechat.logger.runLogCatching
 
-
+@Stable
 fun Modifier.clipToBounds(clip: Boolean) = this.graphicsLayer(clip = clip)
 
+@Stable
 fun Modifier.roundCorners(radius: Dp) = this.graphicsLayer(clip = true, shape = RoundedCornerShape(radius))
 
 

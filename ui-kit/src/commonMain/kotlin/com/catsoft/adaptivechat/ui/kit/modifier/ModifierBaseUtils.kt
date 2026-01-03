@@ -20,65 +20,77 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-
-// Modifier.width(this.dp)
+/**
+ * Shortcut for [Modifier.width] in dp
+ * @see androidx.compose.foundation.layout.width
+ */
 inline val Int.w: Modifier get() = Modifier.width(this.dp)
 
-// Modifier.height(this.dp)
+/**
+ * Shortcut for [Modifier.height] in dp
+ * @see androidx.compose.foundation.layout.height
+ */
 inline val Int.h: Modifier get() = Modifier.height(this.dp)
 
-// Modifier.height(this.dp)
+/**
+ * Shortcut for [Modifier.size] in dp
+ * @see androidx.compose.foundation.layout.size
+ */
 inline val Int.s: Modifier get() = Modifier.size(this.dp)
 
-// this.width(width.dp)
+/**
+ * Shortcut for [Modifier.width] in dp
+ * @see androidx.compose.foundation.layout.width
+ */
 fun Modifier.w(width: Int): Modifier = this.width(width.dp)
 
-// this.height(height.dp)
+/**
+ * Shortcut for [Modifier.height] in dp
+ * @see androidx.compose.foundation.layout.height
+ */
 fun Modifier.h(height: Int): Modifier = this.height(height.dp)
 
-//  this.size(height.dp)
+/**
+ * Shortcut for [Modifier.size] in dp
+ * @see androidx.compose.foundation.layout.size
+ */
 fun Modifier.s(size: Int): Modifier = this.size(size.dp)
 
+/**
+ * Vertical spacer with height in dp
+ * @see androidx.compose.foundation.layout.Spacer
+ */
+inline val Int.sv @Composable  get() = Spacer(Modifier.height(this.dp))
 
-// Spacer(this.dp)
-inline val Int.sv: Unit @Composable get() = Spacer(Modifier.height(this.dp))
-
+/**
+ * Vertical spacer item for LazyColumn/LazyRow
+ * @see androidx.compose.foundation.layout.Spacer
+ */
 fun LazyListScope.sv(key: String, space: Int) = item(key = key) { space.sv }
 
-// Spacer(Modifier.width(this.dp))
-inline val Int.sh: Unit @Composable get() = Spacer(Modifier.width(this.dp))
+/**
+ * Horizontal spacer with width in dp
+ * @see androidx.compose.foundation.layout.Spacer
+ */
+inline val Int.sh @Composable  get() = Spacer(Modifier.width(this.dp))
 
-// Spacer(Modifier.weight(1F))
-inline val RowScope.sf: Unit @Composable get() = Spacer(Modifier.weight(1F))
+/**
+ * Flexible spacer for Row (weight = 1F)
+ * @see androidx.compose.foundation.layout.Spacer
+ */
+inline val RowScope.sf @Composable  get() = Spacer(Modifier.weight(1F))
 
-// Modifier.fillMaxWidth()
-inline val mw: Modifier get(): Modifier = Modifier.fillMaxWidth()
+/**
+ * Flexible spacer for Column (weight = 1F)
+ * @see androidx.compose.foundation.layout.Spacer
+ */
+inline val ColumnScope.sf @Composable get() = Spacer(Modifier.weight(1F))
 
-// Modifier.fillMaxHeight()
-inline val mh: Modifier get(): Modifier = Modifier.fillMaxHeight()
-
-// Modifier.fillMaxSize()
-inline val ms: Modifier get(): Modifier = Modifier.fillMaxSize()
-
-// Modifier.weight(1.0F)
-inline val RowScope.mf: Modifier get(): Modifier = Modifier.weight(1.0F)
-
-// Modifier.weight(1.0F)
-inline val ColumnScope.mf: Modifier get(): Modifier = Modifier.weight(1.0F)
-
-// this.fillMaxWidth()
-fun Modifier.mw(): Modifier = this.fillMaxWidth()
-
-// this.fillMaxHeight()
-fun Modifier.mh(): Modifier = this.fillMaxHeight()
-
-// this.fillMaxSize()
-fun Modifier.ms(): Modifier = this.fillMaxSize()
-
-fun Color.bg(shape: Shape = RectangleShape): Modifier = Modifier.background(this, shape)
-
+/**
+ * Flexible spacer for Row with min constraints
+ * @see androidx.compose.foundation.layout.Spacer
+ */
 @Composable
-// Modifier.weight(1F).defaultMinSize(minWidth = minWidth, minHeight = minHeight)
 fun RowScope.sf(
     minWidth: Dp = Dp.Unspecified,
     minHeight: Dp = Dp.Unspecified,
@@ -88,5 +100,56 @@ fun RowScope.sf(
         .defaultMinSize(minWidth = minWidth, minHeight = minHeight)
 )
 
-// Spacer(Modifier.weight(1F))
-inline val ColumnScope.sf: Unit @Composable get() = Spacer(Modifier.weight(1F))
+/**
+ * Shortcut for [Modifier.fillMaxWidth]
+ * @see androidx.compose.foundation.layout.fillMaxWidth
+ */
+inline val mw: Modifier get() = Modifier.fillMaxWidth()
+
+/**
+ * Shortcut for [Modifier.fillMaxHeight]
+ * @see androidx.compose.foundation.layout.fillMaxHeight
+ */
+inline val mh: Modifier get() = Modifier.fillMaxHeight()
+
+/**
+ * Shortcut for [Modifier.fillMaxSize]
+ * @see androidx.compose.foundation.layout.fillMaxSize
+ */
+inline val ms: Modifier get() = Modifier.fillMaxSize()
+
+/**
+ * Shortcut for [Modifier.weight] in Row (weight = 1.0F)
+ * @see androidx.compose.foundation.layout.RowScope.weight
+ */
+inline val RowScope.mf: Modifier get() = Modifier.weight(1.0F)
+
+/**
+ * Shortcut for [Modifier.weight] in Column (weight = 1.0F)
+ * @see androidx.compose.foundation.layout.ColumnScope.weight
+ */
+inline val ColumnScope.mf: Modifier get() = Modifier.weight(1.0F)
+
+/**
+ * Shortcut for [Modifier.fillMaxWidth]
+ * @see androidx.compose.foundation.layout.fillMaxWidth
+ */
+fun Modifier.mw(): Modifier = this.fillMaxWidth()
+
+/**
+ * Shortcut for [Modifier.fillMaxHeight]
+ * @see androidx.compose.foundation.layout.fillMaxHeight
+ */
+fun Modifier.mh(): Modifier = this.fillMaxHeight()
+
+/**
+ * Shortcut for [Modifier.fillMaxSize]
+ * @see androidx.compose.foundation.layout.fillMaxSize
+ */
+fun Modifier.ms(): Modifier = this.fillMaxSize()
+
+/**
+ * Shortcut for creating background modifier from Color
+ * @see androidx.compose.foundation.background
+ */
+fun Color.bg(shape: Shape = RectangleShape): Modifier = Modifier.background(this, shape)

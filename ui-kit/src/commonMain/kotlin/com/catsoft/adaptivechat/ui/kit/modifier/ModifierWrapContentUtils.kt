@@ -3,29 +3,41 @@ package com.catsoft.adaptivechat.ui.kit.modifier
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
-// Modifier.wrapContentWidth()
-inline val Modifier.wcW: Modifier @Composable get() = this.wrapContentWidth()
+/**
+ * Shortcut for [Modifier.wrapContentWidth]
+ * @see androidx.compose.foundation.layout.wrapContentWidth
+ */
+inline val Modifier.wcW: Modifier get() = this.wrapContentWidth()
 
+/**
+ * Shortcut for [Modifier.wrapContentHeight]
+ * @see androidx.compose.foundation.layout.wrapContentHeight
+ */
+inline val Modifier.wcH: Modifier get() = this.wrapContentHeight()
 
-// Modifier.wrapContentHeight()
-inline val Modifier.wcH: Modifier @Composable get() = this.wrapContentHeight()
+/**
+ * Shortcut for [Modifier.wrapContentSize]
+ * @see androidx.compose.foundation.layout.wrapContentSize
+ */
+inline val Modifier.wcS: Modifier get() = this.wrapContentSize()
 
+/**
+ * Shortcut for [Modifier.wrapContentWidth]
+ * @see androidx.compose.foundation.layout.wrapContentWidth
+ */
+inline val wcW: Modifier get() = Modifier.wrapContentWidth()
 
-// Modifier.wrapContentSize()
-inline val Modifier.wcS: Modifier @Composable get() = this.wrapContentSize()
+/**
+ * Shortcut for [Modifier.wrapContentHeight]
+ * @see androidx.compose.foundation.layout.wrapContentHeight
+ */
+inline val wcH: Modifier get() = Modifier.wrapContentHeight()
 
-
-// Modifier.wrapContentWidth()
-inline val wcW: Modifier @Composable get() = Modifier.wrapContentWidth()
-
-
-// Modifier.wrapContentHeight()
-inline val wcH: Modifier @Composable get() = Modifier.wrapContentHeight()
-
-
-// Modifier.wrapContentSize()
-inline val wcS: Modifier @Composable get() = Modifier.wrapContentSize()
+/**
+ * Shortcut for [Modifier.wrapContentSize]
+ * @see androidx.compose.foundation.layout.wrapContentSize
+ */
+inline val wcS: Modifier get() = Modifier.wrapContentSize()
 
