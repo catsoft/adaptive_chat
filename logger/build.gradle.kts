@@ -9,16 +9,13 @@ plugins {
 }
 
 apply(from = "../common-module-compose.gradle")
-apply(from = "../common-pagings.gradle")
 
 kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(projects.uiKitApi)
-            api(projects.logger)
-
-            api(libs.ui.backhandler)
+            api(libs.kermit)
+            implementation(libs.coroutines.core)
         }
     }
 }

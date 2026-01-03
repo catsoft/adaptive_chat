@@ -20,6 +20,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.catsoft.adaptivechat.conversation.domain.Conversation
 import com.catsoft.adaptivechat.conversation.viewmodel.ConversationsViewModel
 import com.catsoft.adaptivechat.platform.formatDate
+import com.catsoft.adaptivechat.ui.kit.modifier.wcH
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -27,6 +28,7 @@ fun ConversationsScreen(viewModel: ConversationsViewModel = koinViewModel()) {
     val conversations by viewModel.conversations.collectAsStateWithLifecycle()
     
     Scaffold(
+        modifier = wcH,
         topBar = {
             TopAppBar(
                 title = { Text("Conversations") },

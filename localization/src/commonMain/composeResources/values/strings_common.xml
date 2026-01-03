@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="add">Add</string>
+  <string name="app_name">Adaptive Chat</string>
+  <string name="at_sign">@</string>
+  <string name="dash_sign">‒</string>
+  <string name="cancel">Cancel</string>
+  <string name="close">Close</string>
+  <string name="common_apply">Apply</string>
+  <string name="common_duration_hour">hour</string>
+  <string name="common_duration_hours">hours</string>
+  <string name="common_duration_minute">minute</string>
+  <string name="common_duration_minutes">minutes</string>
+  <string name="common_duration_second">second</string>
+  <string name="common_duration_seconds">seconds</string>
+  <string name="copied">copied</string>
+  <string name="copied_to_clipboard">Copied to clipboard</string>
+  <string name="copy">Copy</string>
+  <string name="delete">Delete</string>
+  <string name="done">Done</string>
+  <string name="edit">Edit</string>
+  <string name="filter">Filter</string>
+  <string name="ok">OK</string>
+  <string name="set_">Set</string>
+  <string name="remove">Remove</string>
+  <string name="rename">Rename</string>
+  <string name="retry">Retry</string>
+  <string name="save">Save</string>
+  <string name="search">Search</string>
+  <string name="skip">Skip</string>
+  <string name="something_went_wrong">Something went wrong</string>
+</resources>
