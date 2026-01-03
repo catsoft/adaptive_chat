@@ -53,7 +53,6 @@ fun AgentsScreen(viewModel: AgentsViewModel = koinViewModel()) {
                 AgentCard(
                     agent = agent,
                     onClick = {
-                        val conversationId = viewModel.createNewConversation(agent)
                     }
                 )
             }
