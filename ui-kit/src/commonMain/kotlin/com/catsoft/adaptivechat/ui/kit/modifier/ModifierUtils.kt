@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.utils
+package com.catsoft.adaptivechat.ui.kit.modifier
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -52,7 +52,7 @@ fun Modifier.clearFocusOnTap(): Modifier {
         interactionSource = interactionSource,
         indication = null // No ripple effect
     ) {
-        timber().i("Clear focus on tap")
+        logger().i("Clear focus on tap")
         runLogCatching(block = {
             focusManager.clearFocus(force = true)
         }, onError = {

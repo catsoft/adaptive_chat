@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.utils
+package com.catsoft.adaptivechat.ui.kit.modifier
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier

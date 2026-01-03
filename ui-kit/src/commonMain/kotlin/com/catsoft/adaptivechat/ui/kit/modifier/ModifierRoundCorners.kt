@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.utils
+package com.catsoft.adaptivechat.ui.kit.modifier
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable

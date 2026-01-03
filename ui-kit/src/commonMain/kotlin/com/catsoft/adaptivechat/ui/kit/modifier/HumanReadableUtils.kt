@@ -1,5 +1,6 @@
-package com.chatfuel.shared.uiKit.utils
+package com.catsoft.adaptivechat.ui.kit.modifier
 
+import kotlin.math.abs
 import kotlin.math.ln
 import kotlin.math.pow
 import kotlin.math.roundToLong
@@ -21,7 +22,7 @@ private fun formatOneDecimal(value: Double): String {
     // Round to 1 decimal place without using platform-specific formatting
     val scaled = (value * 10.0).roundToLong()
     val sign = if (scaled < 0) "-" else ""
-    val absScaled = kotlin.math.abs(scaled)
+    val absScaled = abs(scaled)
     val intPart = absScaled / 10
     val frac = absScaled % 10
     return "$sign$intPart.$frac"

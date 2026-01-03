@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.utils
+package com.catsoft.adaptivechat.ui.kit.paging
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -13,32 +13,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.paging.ItemSnapshotList
 import app.cash.paging.LoadStateError
 import app.cash.paging.compose.LazyPagingItems
-import com.catsoft.adaptivechat.ui.kit.modifier.isLoaded
 import com.chatfuel.common.timber
-
-@Composable
-fun <T : Any> SubscribeOnPagerStates(
-    list: LazyPagingItems<T>,
-    whenLoaded: (ItemSnapshotList<T>) -> Unit = {},
-) {
-    LaunchedEffect(list.loadState) {
-        if (list.loadState.isLoaded()) {
-            whenLoaded(list.itemSnapshotList)
-        }
-
-        (list.loadState.refresh as? LoadStateError)?.let {
-            timber().e { it.error.toString() }
-        }
-
-        (list.loadState.append as? LoadStateError)?.let {
-            timber().e { it.error.toString() }
-        }
-
-        (list.loadState.prepend as? LoadStateError)?.let {
-            timber().e { it.error.toString() }
-        }
-    }
-}
 
 @Composable
 fun OnCreate(block: suspend () -> Unit) = OnEventWithState(Lifecycle.Event.ON_CREATE) {

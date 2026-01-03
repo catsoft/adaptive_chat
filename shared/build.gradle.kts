@@ -20,6 +20,7 @@ kotlin {
             api(projects.localization)
             api(projects.uiKit)
             api(projects.uiKitApi)
+            api(projects.logger)
 
             api(libs.kmp.media)
             api(libs.kmp.media.compose)
