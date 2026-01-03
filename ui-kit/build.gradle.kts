@@ -17,6 +17,8 @@ kotlin {
         commonMain.dependencies {
             api(projects.uiKitApi)
             api(projects.logger)
+
+            api(libs.ui.backhandler)
         }
     }
 }
