@@ -28,11 +28,11 @@ fun <T : Any> SubscribeOnPagerStates(
         }
 
         (list.loadState.append as? LoadStateError)?.let {
-            timber().e { it.error.toString() }
+            logger().e { it.error.toString() }
         }
 
         (list.loadState.prepend as? LoadStateError)?.let {
-            timber().e { it.error.toString() }
+            logger().e { it.error.toString() }
         }
     }
 }

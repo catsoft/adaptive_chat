@@ -14,10 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.Dp
-import com.chatfuel.common.runLogCatching
-import com.chatfuel.common.timber
-import com.chatfuel.palette.neutral_100
-import com.chatfuel.shared.uiKit.modifier.CFModifier
+import com.catsoft.adaptivechat.logger.logger
 
 
 fun Modifier.clipToBounds(clip: Boolean) = this.graphicsLayer(clip = clip)
@@ -26,8 +23,8 @@ fun Modifier.roundCorners(radius: Dp) = this.graphicsLayer(clip = true, shape = 
 
 
 fun Modifier.gray(enabled: Boolean, disabledTint: Color = neutral_100) = this.then(
-    if (enabled) CFModifier
-    else CFModifier.drawWithCache {
+    if (enabled) Modifier
+    else Modifier.drawWithCache {
         onDrawWithContent {
             drawContent()
             drawRect(disabledTint, blendMode = BlendMode.Saturation)
@@ -35,8 +32,8 @@ fun Modifier.gray(enabled: Boolean, disabledTint: Color = neutral_100) = this.th
     })
 
 fun Modifier.tint(enabled: Boolean, disabledTint: Color = neutral_100) = this.then(
-    if (enabled) CFModifier
-    else CFModifier.drawWithCache {
+    if (enabled) Modifier
+    else Modifier.drawWithCache {
         onDrawWithContent {
             drawContent()
             drawRect(disabledTint, blendMode = BlendMode.Hue)

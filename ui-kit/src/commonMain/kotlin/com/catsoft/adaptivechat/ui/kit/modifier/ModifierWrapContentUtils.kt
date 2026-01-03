@@ -6,26 +6,26 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
-// CFModifier.wrapContentWidth()
+// Modifier.wrapContentWidth()
 inline val Modifier.wcW: Modifier @Composable get() = this.wrapContentWidth()
 
 
-// CFModifier.wrapContentHeight()
+// Modifier.wrapContentHeight()
 inline val Modifier.wcH: Modifier @Composable get() = this.wrapContentHeight()
 
 
-// CFModifier.wrapContentSize()
+// Modifier.wrapContentSize()
 inline val Modifier.wcS: Modifier @Composable get() = this.wrapContentSize()
 
 
-// CFModifier.wrapContentWidth()
+// Modifier.wrapContentWidth()
 inline val wcW: Modifier @Composable get() = Modifier.wrapContentWidth()
 
 
-// CFModifier.wrapContentHeight()
+// Modifier.wrapContentHeight()
 inline val wcH: Modifier @Composable get() = Modifier.wrapContentHeight()
 
 
-// CFModifier.wrapContentSize()
+// Modifier.wrapContentSize()
 inline val wcS: Modifier @Composable get() = Modifier.wrapContentSize()
 

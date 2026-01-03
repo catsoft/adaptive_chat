@@ -5,7 +5,6 @@ import co.touchlab.kermit.Severity
 import co.touchlab.kermit.StaticConfig
 import co.touchlab.kermit.loggerConfigInit
 import co.touchlab.kermit.platformLogWriter
-import kotlin.time.Clock
 
 /**
  * Global logger instance with Android-specific configuration.
@@ -27,7 +26,7 @@ private val globalLogger: Logger by lazy {
  * Usage:
  * ```kotlin
  * class MyViewModel {
- *     private val logger = timber()
+ *     private val logger = logger()
  *
  *     fun someMethod() {
  *         logger.d { "Debug message" }
@@ -38,7 +37,7 @@ private val globalLogger: Logger by lazy {
  * }
  * ```
  */
-fun <T : Any> T.timber(): Logger {
+fun <T : Any> T.logger(): Logger {
     val className = this::class.simpleName ?: "AdaptiveChat"
     return provideLogger().withTag(className)
 }
@@ -50,11 +49,11 @@ fun <T : Any> T.timber(): Logger {
  * Usage:
  * ```kotlin
  * fun topLevelFunction() {
- *     timber().d { "Logging from top-level function" }
+ *     logger().d { "Logging from top-level function" }
  * }
  * ```
  */
-fun timber(): Logger = Unit.timber()
+fun logger(): Logger = Unit.logger()
 
 /**
  * Provides the global logger instance.

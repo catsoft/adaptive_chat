@@ -13,7 +13,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.paging.ItemSnapshotList
 import app.cash.paging.LoadStateError
 import app.cash.paging.compose.LazyPagingItems
-import com.chatfuel.common.timber
+import com.chatfuel.common.logger
 
 @Composable
 fun OnCreate(block: suspend () -> Unit) = OnEventWithState(Lifecycle.Event.ON_CREATE) {
