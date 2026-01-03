@@ -1,9 +1,9 @@
-package com.catsoft.adaptivechat.presentation.viewmodel
+package com.catsoft.adaptivechat.agent.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.catsoft.adaptivechat.data.DataRepository
-import com.catsoft.adaptivechat.domain.model.Agent
-import com.catsoft.adaptivechat.domain.model.Conversation
+import com.catsoft.adaptivechat.agent.domain.Agent
+import com.catsoft.adaptivechat.conversation.domain.Conversation
 import com.catsoft.adaptivechat.util.IdGenerator
 import kotlinx.coroutines.flow.StateFlow
 

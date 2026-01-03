@@ -1,7 +1,7 @@
 package com.catsoft.adaptivechat
 
 import androidx.compose.ui.window.ComposeUIViewController
-import com.catsoft.adaptivechat.composeApp.App
+import com.catsoft.adaptivechat.App
 import platform.UIKit.UIViewController
 
 fun MainViewController(): UIViewController {

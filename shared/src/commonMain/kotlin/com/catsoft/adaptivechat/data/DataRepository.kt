@@ -1,8 +1,8 @@
 package com.catsoft.adaptivechat.data
 
-import com.catsoft.adaptivechat.domain.model.Agent
-import com.catsoft.adaptivechat.domain.model.Conversation
-import com.catsoft.adaptivechat.domain.model.Message
+import com.catsoft.adaptivechat.agent.domain.Agent
+import com.catsoft.adaptivechat.conversation.domain.Conversation
+import com.catsoft.adaptivechat.conversation.domain.Message
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

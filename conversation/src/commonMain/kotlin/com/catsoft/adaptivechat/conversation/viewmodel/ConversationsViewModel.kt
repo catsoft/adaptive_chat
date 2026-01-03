@@ -1,8 +1,8 @@
-package com.catsoft.adaptivechat.presentation.viewmodel
+package com.catsoft.adaptivechat.conversation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.catsoft.adaptivechat.data.DataRepository
-import com.catsoft.adaptivechat.domain.model.Conversation
+import com.catsoft.adaptivechat.conversation.domain.Conversation
 import kotlinx.coroutines.flow.StateFlow
 
 class ConversationsViewModel(

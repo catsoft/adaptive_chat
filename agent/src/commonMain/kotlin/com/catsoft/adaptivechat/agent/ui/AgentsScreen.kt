@@ -1,4 +1,4 @@
-package com.catsoft.adaptivechat.presentation.ui
+package com.catsoft.adaptivechat.agent.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.catsoft.adaptivechat.domain.model.Agent
-import com.catsoft.adaptivechat.presentation.viewmodel.AgentsViewModel
+import com.catsoft.adaptivechat.agent.domain.Agent
+import com.catsoft.adaptivechat.agent.viewmodel.AgentsViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

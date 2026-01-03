@@ -1,15 +1,15 @@
-package com.catsoft.adaptivechat.composeApp
+package com.catsoft.adaptivechat
 
 import androidx.compose.runtime.*
 import com.catsoft.adaptivechat.data.DataRepository
-import com.catsoft.adaptivechat.data.GeminiService
+import com.catsoft.adaptivechat.gemini.ai.service.GeminiService
 import com.catsoft.adaptivechat.navigation.Screen
-import com.catsoft.adaptivechat.presentation.ui.AgentsScreen
-import com.catsoft.adaptivechat.presentation.ui.ChatScreen
-import com.catsoft.adaptivechat.presentation.ui.ConversationsScreen
-import com.catsoft.adaptivechat.presentation.viewmodel.AgentsViewModel
-import com.catsoft.adaptivechat.presentation.viewmodel.ChatViewModel
-import com.catsoft.adaptivechat.presentation.viewmodel.ConversationsViewModel
+import com.catsoft.adaptivechat.agent.ui.AgentsScreen
+import com.catsoft.adaptivechat.chat.ui.ChatScreen
+import com.catsoft.adaptivechat.conversation.ui.ConversationsScreen
+import com.catsoft.adaptivechat.agent.viewmodel.AgentsViewModel
+import com.catsoft.adaptivechat.chat.viewmodel.ChatViewModel
+import com.catsoft.adaptivechat.conversation.viewmodel.ConversationsViewModel
 import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 
 @Composable
