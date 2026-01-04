@@ -279,3 +279,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform" }
 cocoaPods = { id = "org.jetbrains.kotlin.native.cocoapods" }
 
 room = { id = "androidx.room", version.ref = "room" }
+atomic = { id = "org.jetbrains.kotlinx.atomicfu", version="0.26.0" }

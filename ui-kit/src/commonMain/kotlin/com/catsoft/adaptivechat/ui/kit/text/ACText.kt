@@ -26,7 +26,7 @@ import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.parseStyledText
 
 @Composable
-fun CFText(
+fun ACText(
     text: TextClause,
     style: TextStyle = TextStyle.Default,
     linkStyle: SpanStyle? = null,

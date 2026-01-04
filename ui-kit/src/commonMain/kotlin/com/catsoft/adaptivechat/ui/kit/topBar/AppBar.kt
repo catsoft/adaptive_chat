@@ -39,7 +39,7 @@ import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.mw
 import com.catsoft.adaptivechat.ui.kit.modifier.ph
 import com.catsoft.adaptivechat.ui.kit.navigation.LocalNavController
-import com.catsoft.adaptivechat.ui.kit.text.CFText
+import com.catsoft.adaptivechat.ui.kit.text.ACText
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Back
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Close
@@ -226,7 +226,7 @@ private fun TopBarTitle(
 
             state.titleIcon.invoke()
 
-            CFText(
+            ACText(
                 title, style = style.copy(color = LocalContentColor.current), modifier = m.weight(1f), overflow = TextOverflow.Ellipsis
             )
         }
