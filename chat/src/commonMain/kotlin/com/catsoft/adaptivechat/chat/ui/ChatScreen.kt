@@ -13,15 +13,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.adaptivechat.localization.resources.chat_screen_title
 import com.catsoft.adaptivechat.chat.api.model.Message
 import com.catsoft.adaptivechat.chat.api.model.MessageType
 import com.catsoft.adaptivechat.chat.api.navigation.ChatScreens
+import com.catsoft.adaptivechat.chat.ui.input.ChatInput
+import com.catsoft.adaptivechat.chat.ui.messages.MessageBubble
+import com.catsoft.adaptivechat.localization.Strings
 import com.catsoft.adaptivechat.platform.formatTimestamp
 import com.catsoft.adaptivechat.ui.kit.api.textClause.raw
+import com.catsoft.adaptivechat.ui.kit.api.textClause.str
 import com.catsoft.adaptivechat.ui.kit.data.mapStates
+import com.catsoft.adaptivechat.ui.kit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.modifier.ms
 import com.catsoft.adaptivechat.ui.kit.screen.BoxScreenScaffold
 import com.catsoft.adaptivechat.ui.kit.screen.ScreenScaffoldConfig
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
+import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState.Companion.setBackIcon
+import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
 import kotlinx.coroutines.launch
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
@@ -37,11 +46,9 @@ fun ChatScreen(
     val scope = rememberCoroutineScope()
 
     BoxScreenScaffold(
-        viewModel,
+        viewModel = viewModel,
         config = ScreenScaffoldConfig.FullScreenConfig,
-        state = {
-            TopBarState.plainTitle("AI Chat".raw())
-        }
+        state = { TopBarState.plainTitle(Strings.chat_screen_title.str()).setBackIcon(BackIconState.None) }
     ) { state ->
         mapStates(state.messages) { messages ->
             // Auto-scroll to bottom when new messages arrive
@@ -103,142 +110,18 @@ private fun Messages(
     messages: List<Message>,
     listState: androidx.compose.foundation.lazy.LazyListState,
 ) {
-    LazyColumn(
-        state = listState,
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        items(messages) { message ->
-            MessageBubble(message)
-        }
-    }
-}
-
-
-@Composable
-private fun ChatInput(isLoading: Boolean) {
-    var messageText by remember { mutableStateOf("") }
-
-    Surface(
-        shadowElevation = 8.dp,
-        color = MaterialTheme.colorScheme.surface
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
+    Column(ms) {
+        LazyColumn(
+            state = listState,
+            modifier = m.weight(1F),
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            // Input options row
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                IconButton(onClick = { }) {
-                    Icon(Icons.Default.Send, "Voice input")
-                }
-                IconButton(onClick = { }) {
-                    Icon(Icons.Default.Send, "Image input")
-                }
-                IconButton(onClick = { }) {
-                    Icon(Icons.Default.Add, "Document input")
-                }
-            }
-
-            // Text input row
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                OutlinedTextField(
-                    value = messageText,
-                    onValueChange = { messageText = it },
-                    modifier = Modifier.weight(1f),
-                    placeholder = { Text("Type a message...") },
-                    maxLines = 3
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                IconButton(
-                    onClick = {
-                        if (messageText.isNotBlank()) {
-                            messageText = ""
-                        }
-                    },
-                    enabled = messageText.isNotBlank() && !isLoading
-                ) {
-                    Icon(Icons.Default.Send, "Send")
-                }
+            items(messages) { message ->
+                MessageBubble(message)
             }
         }
-    }
-}
 
-
-@Composable
-fun MessageBubble(message: Message) {
-    val alignment = if (message.isFromUser) Alignment.End else Alignment.Start
-    val backgroundColor = if (message.isFromUser) {
-        MaterialTheme.colorScheme.primaryContainer
-    } else {
-        MaterialTheme.colorScheme.secondaryContainer
-    }
-    val textColor = if (message.isFromUser) {
-        MaterialTheme.colorScheme.onPrimaryContainer
-    } else {
-        MaterialTheme.colorScheme.onSecondaryContainer
-    }
-
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = alignment
-    ) {
-        Surface(
-            modifier = Modifier.widthIn(max = 300.dp),
-            shape = RoundedCornerShape(12.dp),
-            color = backgroundColor
-        ) {
-            Column(
-                modifier = Modifier.padding(12.dp)
-            ) {
-                if (message.type != MessageType.TEXT) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = when (message.type) {
-                                MessageType.VOICE -> Icons.Default.Send
-                                MessageType.IMAGE -> Icons.Default.Send
-                                MessageType.DOCUMENT -> Icons.Default.Send
-                                else -> Icons.Default.Send
-                            },
-                            contentDescription = null,
-                            modifier = Modifier.size(16.dp),
-                            tint = textColor
-                        )
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(
-                            text = message.type.name,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = textColor
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(4.dp))
-                }
-
-                Text(
-                    text = message.content,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = textColor
-                )
-
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(
-                    text = formatTimestamp(message.timestamp),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = textColor.copy(alpha = 0.7f)
-                )
-            }
-        }
+        ChatInput(isLoading = false)
     }
 }
