@@ -14,9 +14,11 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -59,10 +61,10 @@ fun ChatfuelScreenTopBar(
         mw.animateContentSize()
     }.shadow(
         elevation = 16.dp,
-        spotColor = base_0,
-        ambientColor = base_0,
+        spotColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f),
+        ambientColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.05f),
         shape = RectangleShape,
-    ).background(neutral_100)
+    ).background(MaterialTheme.colorScheme.surface)
 
     Column(columnModifier) {
         AppBarWithState(state, modifier, scrollBehavior, currentScreen, canNavigateBack, navigateUp)
@@ -94,7 +96,6 @@ private fun AppBarWithState(
         enter = slideInVertically(initialOffsetY = { -it }),
         exit = slideOutVertically(targetOffsetY = { -it })
     ) {
-        val localModifier = neutral_100.bg()
         val appBarModifier = m
 
         if (state?.isLoading == true) {
@@ -103,8 +104,9 @@ private fun AppBarWithState(
         }
 
         Surface(
-            modifier = localModifier,
+            modifier = appBarModifier,
             shape = RectangleShape,
+            color = MaterialTheme.colorScheme.surface
         ) {
             when (state?.style) {
                 TopBarStyle.CenterAlignedTopAppBar -> {
@@ -113,6 +115,12 @@ private fun AppBarWithState(
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
                         actions = { TopBarActions(state) },
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.surface,
+                            titleContentColor = MaterialTheme.colorScheme.onSurface,
+                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                        ),
                         scrollBehavior = scrollBehavior
                     )
                 }
@@ -120,7 +128,12 @@ private fun AppBarWithState(
                 TopBarStyle.Large -> {
                     LargeTopAppBar(
                         title = { TopBarTitle(state.title ?: TextClause.Empty, state) },
-                        colors = colors,
+                        colors = TopAppBarDefaults.largeTopAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.surface,
+                            titleContentColor = MaterialTheme.colorScheme.onSurface,
+                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                        ),
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
                         actions = { TopBarActions(state) },
@@ -131,7 +144,12 @@ private fun AppBarWithState(
                 TopBarStyle.Medium -> {
                     MediumTopAppBar(
                         title = { TopBarTitle(state.title ?: TextClause.Empty, state) },
-                        colors = colors,
+                        colors = TopAppBarDefaults.mediumTopAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.surface,
+                            titleContentColor = MaterialTheme.colorScheme.onSurface,
+                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                        ),
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
                         actions = { TopBarActions(state) },
@@ -142,7 +160,12 @@ private fun AppBarWithState(
                 TopBarStyle.Default -> {
                     TopAppBar(
                         title = { TopBarTitle(state.title ?: TextClause.Empty, state) },
-                        colors = colors,
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.surface,
+                            titleContentColor = MaterialTheme.colorScheme.onSurface,
+                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                        ),
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
                         actions = { TopBarActions(state) },
