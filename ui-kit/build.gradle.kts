@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.room)
     alias(libs.plugins.compose.compiler)
 }
 
@@ -19,6 +20,14 @@ kotlin {
             api(projects.logger)
 
             api(libs.ui.backhandler)
+
+            api(libs.room.runtime)
+
+            api(libs.serialization.json)
         }
     }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
