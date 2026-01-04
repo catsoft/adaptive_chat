@@ -5,6 +5,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.catsoft.adaptivechat.agent.navigation.agentNavigation
@@ -17,20 +18,22 @@ import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 fun App() {
     AdaptiveChatTheme {
         val navController = rememberNavController()
+        CompositionLocalProvider(LocalNavController provides navController) {
 
-        NavHost(
-            navController = navController,
-            startDestination = ConversationsScreens.ConversationsList,
-            enterTransition = { slideInHorizontally(initialOffsetX = { it }) + fadeIn() },
-            exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) + fadeOut() },
-            popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) + fadeIn() },
-            popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) + fadeOut() },
-        ) {
-            conversationNavigation()
+            NavHost(
+                navController = navController,
+                startDestination = ConversationsScreens.ConversationsList,
+                enterTransition = { slideInHorizontally(initialOffsetX = { it }) + fadeIn() },
+                exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) + fadeOut() },
+                popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) + fadeIn() },
+                popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) + fadeOut() },
+            ) {
+                conversationNavigation()
 
-            agentNavigation()
+                agentNavigation()
 
-            chatNavigation()
+                chatNavigation()
+            }
         }
     }
 }
