@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.catsoft.adaptivechat.ui.kit.api.delegates.ComposableContent
 import com.catsoft.adaptivechat.ui.kit.api.textClause.TextClause
-import com.catsoft.adaptivechat.ui.kit.api.theme.Spacing
+import com.catsoft.adaptivechat.ui.kit.api.spacing.Spacing
 import com.catsoft.adaptivechat.ui.kit.modifier.ms
 import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.catsoft.adaptivechat.ui.kit.screen.layout.CenteredLayout

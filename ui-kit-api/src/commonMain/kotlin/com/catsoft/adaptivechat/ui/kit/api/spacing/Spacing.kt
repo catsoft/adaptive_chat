@@ -1,4 +1,4 @@
-package com.catsoft.adaptivechat.ui.kit.api.theme
+package com.catsoft.adaptivechat.ui.kit.api.spacing
 
 
 object Spacing {
