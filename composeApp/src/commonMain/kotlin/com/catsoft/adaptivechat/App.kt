@@ -12,6 +12,7 @@ import com.catsoft.adaptivechat.agent.navigation.agentNavigation
 import com.catsoft.adaptivechat.chat.navigation.chatNavigation
 import com.catsoft.adaptivechat.conversation.navigation.ConversationsScreens
 import com.catsoft.adaptivechat.conversation.navigtion.conversationNavigation
+import com.catsoft.adaptivechat.ui.kit.navigation.LocalNavController
 import com.catsoft.adaptivechat.ui.kit.theme.AdaptiveChatTheme
 
 @Composable

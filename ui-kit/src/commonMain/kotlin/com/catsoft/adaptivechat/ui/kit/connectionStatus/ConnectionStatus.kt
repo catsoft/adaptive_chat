@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.adaptivechat.localization.resources.no_internet_connection
 import com.catsoft.adaptivechat.localization.Strings
+import com.catsoft.adaptivechat.ui.kit.api.textClause.s
 import com.catsoft.adaptivechat.ui.kit.api.textClause.str
 import com.catsoft.adaptivechat.ui.kit.modifier.h
 import com.catsoft.adaptivechat.ui.kit.modifier.m
@@ -60,8 +61,7 @@ fun ConnectionStatus(
             16.sh
             ACText(
                 text = Strings.no_internet_connection.str(),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onErrorContainer
+                style = MaterialTheme.typography.labelLarge.copy(color = MaterialTheme.colorScheme.onErrorContainer),
             )
         }
     }

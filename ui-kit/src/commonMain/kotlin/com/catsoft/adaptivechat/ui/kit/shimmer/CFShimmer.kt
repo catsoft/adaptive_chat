@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,10 +23,18 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.catsoft.adaptivechat.ui.kit.modifier.h
+import com.catsoft.adaptivechat.ui.kit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.modifier.mw
+import com.catsoft.adaptivechat.ui.kit.modifier.pe
+import com.catsoft.adaptivechat.ui.kit.modifier.roundCorners
+import com.catsoft.adaptivechat.ui.kit.modifier.s
+import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.valentinilk.shimmer.shimmer
 
 val shimmerColor: Color
-    get() = neutral_50
+    @Composable
+    get() = MaterialTheme.colorScheme.surfaceVariant
 
 @Composable
 fun ShimmerBrush(showShimmer: Boolean = true, targetValue: Float = 1000f): Brush {
