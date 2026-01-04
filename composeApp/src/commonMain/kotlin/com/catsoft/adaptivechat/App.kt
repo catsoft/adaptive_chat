@@ -9,6 +9,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.catsoft.adaptivechat.agent.navigation.agentNavigation
+import com.catsoft.adaptivechat.chat.api.navigation.ChatScreens
 import com.catsoft.adaptivechat.chat.navigation.chatNavigation
 import com.catsoft.adaptivechat.conversation.navigation.ConversationsScreens
 import com.catsoft.adaptivechat.conversation.navigtion.conversationNavigation
@@ -23,7 +24,7 @@ fun App() {
 
             NavHost(
                 navController = navController,
-                startDestination = ConversationsScreens.ConversationsList,
+                startDestination = ChatScreens.Chat(conversationId = "", agentId = ""),
                 enterTransition = { slideInHorizontally(initialOffsetX = { it }) + fadeIn() },
                 exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) + fadeOut() },
                 popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) + fadeIn() },
