@@ -13,7 +13,9 @@ apply(from = "../common-module-compose.gradle")
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            api(projects.localization)
 
+            api(libs.kotlinx.datetime)
         }
     }
 }
