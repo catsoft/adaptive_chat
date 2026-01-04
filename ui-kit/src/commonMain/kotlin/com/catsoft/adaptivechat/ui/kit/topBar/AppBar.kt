@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
@@ -194,9 +197,9 @@ private fun TopBarNavigationIcon(canNavigateBack: Boolean, state: TopBarState, n
         if (state.backIcon == BackIconState.None) return
         IconButton(onClick = navigateUp) {
             when (state.backIcon) {
-                Back -> CFIcons.ArrowLeft.asIcon()
-                Close -> CFIcons.Cross.asIcon()
-                else -> CFIcons.ArrowLeft.asIcon()
+                Back -> Icons.AutoMirrored.ArrowBack
+                Close -> Icons.Default.Close
+                else -> Icons.AutoMirrored.ArrowBack
             }
         }
     }
@@ -207,7 +210,7 @@ private fun TopBarTitle(
     title: TextClause,
     state: TopBarState,
 ) {
-    Row(0.ph, verticalAlignment = CenterVertically) {
+    Row(m.ph(0), verticalAlignment = CenterVertically) {
         if (title.isEmpty()) {
             state.customTitle.invoke()
         } else {
