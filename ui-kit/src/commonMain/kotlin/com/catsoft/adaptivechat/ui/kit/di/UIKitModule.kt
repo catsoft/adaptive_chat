@@ -9,4 +9,6 @@ import org.koin.dsl.module
 
 val uiKitModule = module {
     singleOf(::TopBarVisibilityStateImpl) bind TopBarVisibilityState::class
+
+
 }
