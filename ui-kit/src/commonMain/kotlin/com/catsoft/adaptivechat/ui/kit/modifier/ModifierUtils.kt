@@ -14,6 +14,11 @@ import androidx.compose.ui.unit.Dp
 import com.catsoft.adaptivechat.logger.logger
 import com.catsoft.adaptivechat.logger.runLogCatching
 
+/**
+ * Shortcut for [Modifier]
+ */
+inline val m: Modifier get() = Modifier
+
 @Stable
 fun Modifier.clipToBounds(clip: Boolean) = this.graphicsLayer(clip = clip)
 
