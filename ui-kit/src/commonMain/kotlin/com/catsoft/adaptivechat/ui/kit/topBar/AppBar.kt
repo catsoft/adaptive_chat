@@ -219,15 +219,15 @@ private fun TopBarTitle(
             state.customTitle.invoke()
         } else {
             val style = when (state.titleStyle) {
-                TitleStyle.Normal -> bodyMedium
-                TitleStyle.Big -> headlineBold
-                TitleStyle.Large -> headlineAccent
+                TitleStyle.Normal -> MaterialTheme.typography.titleMedium
+                TitleStyle.Big -> MaterialTheme.typography.headlineMedium
+                TitleStyle.Large -> MaterialTheme.typography.headlineLarge
             }
 
             state.titleIcon.invoke()
 
             CFText(
-                title, style = style.copy(color = LocalContentColor.current), modifier = m.weight(1f), overflow = TextOverflow.Ellipsis
+                title, style = style.copy(color = LocalContentColor.current), modifier = CFModifier.weight(1f), overflow = TextOverflow.Ellipsis
             )
         }
     }
