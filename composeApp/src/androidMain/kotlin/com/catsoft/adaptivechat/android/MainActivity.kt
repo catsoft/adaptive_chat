@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         val style = SystemBarStyle.auto(lightScrim, darkScrim)
         enableEdgeToEdge(statusBarStyle = style, navigationBarStyle = style)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_UNSPECIFIED)
 
 
         setContent { App() }
