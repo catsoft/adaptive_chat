@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.chatfuel.palette.neutral_50
-import com.chatfuel.shared.uiKit.modifier.CFModifier
+import com.chatfuel.shared.uiKit.modifier.m
 import com.chatfuel.shared.uiKit.utils.h
 import com.chatfuel.shared.uiKit.utils.mw
 import com.chatfuel.shared.uiKit.utils.pe
@@ -67,14 +67,14 @@ fun ShimmerBrush(showShimmer: Boolean = true, targetValue: Float = 1000f): Brush
 }
 
 @Composable
-fun CFShimmer(modifier: Modifier = CFModifier) {
+fun CFShimmer(modifier: Modifier = m) {
     Column(
         modifier = modifier
             .shimmer()
             .fillMaxWidth(),
     ) {
         Column(
-            CFModifier.padding(16.dp, 0.dp),
+            m.padding(16.dp, 0.dp),
         ) {
             ShimmerDialogListItem()
 
@@ -89,7 +89,7 @@ fun CFShimmer(modifier: Modifier = CFModifier) {
 @Composable
 fun ShimmerListItem() {
     Row(
-        modifier = CFModifier
+        modifier = m
             .fillMaxWidth()
             .height(56.dp)
             .shimmer(),
@@ -100,16 +100,16 @@ fun ShimmerListItem() {
         }
 
         Column(
-            CFModifier
+            m
                 .weight(1f)
                 .padding(top = 8.dp, end = 16.dp, bottom = 8.dp),
             horizontalAlignment = Alignment.Start
         ) {
-            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = CFModifier.fillMaxWidth(0.2F))
+            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = m.fillMaxWidth(0.2F))
 
             8.sv
 
-            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = CFModifier.fillMaxWidth(0.4F))
+            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = m.fillMaxWidth(0.4F))
         }
     }
 }
@@ -117,7 +117,7 @@ fun ShimmerListItem() {
 @Composable
 fun ShimmerDialogListItem() {
     Row(
-        modifier = CFModifier
+        modifier = m
             .fillMaxWidth()
             .height(68.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -128,10 +128,10 @@ fun ShimmerDialogListItem() {
         Column(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = CFModifier.fillMaxWidth(0.6F))
+            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = m.fillMaxWidth(0.6F))
 
             ShimmerBoxHorizontal(
-                height = 12, corners = 8, modifier = CFModifier
+                height = 12, corners = 8, modifier = m
                     .fillMaxWidth()
                     .pe(28)
             )
@@ -140,7 +140,7 @@ fun ShimmerDialogListItem() {
 }
 
 @Composable
-fun ShimmerChipsItems(chipsCount: Int = 2, modifier: Modifier = CFModifier) {
+fun ShimmerChipsItems(chipsCount: Int = 2, modifier: Modifier = m) {
     Row(
         modifier = modifier.mw().h(64),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -155,7 +155,7 @@ fun ShimmerChipsItems(chipsCount: Int = 2, modifier: Modifier = CFModifier) {
 @Composable
 fun ShimmerInputItem() {
     Row(
-        modifier = CFModifier
+        modifier = m
             .fillMaxWidth()
             .padding(8.dp, 0.dp, 16.dp, 0.dp)
             .shimmer()
@@ -163,7 +163,7 @@ fun ShimmerInputItem() {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        ShimmerBoxHorizontal(height = 40, corners = 20, modifier = CFModifier.weight(1F))
+        ShimmerBoxHorizontal(height = 40, corners = 20, modifier = m.weight(1F))
 
         ShimmerBox(size = 40, corners = 20)
     }
@@ -182,17 +182,17 @@ fun ShimmerNavigatorBarItem() {
         ShimmerBox(size = 44, corners = 22)
 
         Column {
-            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = CFModifier.fillMaxWidth(0.66F))
+            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = m.fillMaxWidth(0.66F))
 
             8.sv
 
-            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = CFModifier.fillMaxWidth(0.51F))
+            ShimmerBoxHorizontal(height = 12, corners = 8, modifier = m.fillMaxWidth(0.51F))
         }
     }
 }
 
 @Composable
-fun ShimmerBoxHorizontal(height: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = CFModifier) {
+fun ShimmerBoxHorizontal(height: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = m) {
     Box(
         modifier = modifier
             .height(height.dp)
@@ -202,7 +202,7 @@ fun ShimmerBoxHorizontal(height: Int, corners: Int = Int.MAX_VALUE, modifier: Mo
 }
 
 @Composable
-fun ShimmerBoxVertical(width: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = CFModifier) {
+fun ShimmerBoxVertical(width: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = m) {
     Box(
         modifier = modifier
             .width(width.dp)
@@ -212,12 +212,12 @@ fun ShimmerBoxVertical(width: Int, corners: Int = Int.MAX_VALUE, modifier: Modif
 }
 
 @Composable
-fun ShimmerBox(size: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = CFModifier) {
+fun ShimmerBox(size: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = m) {
     ShimmerBox(size, size, corners, modifier)
 }
 
 @Composable
-fun ShimmerBox(height: Int, width: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = CFModifier) {
+fun ShimmerBox(height: Int, width: Int, corners: Int = Int.MAX_VALUE, modifier: Modifier = m) {
     Box(
         modifier = modifier
             .size(height.dp, width.dp)

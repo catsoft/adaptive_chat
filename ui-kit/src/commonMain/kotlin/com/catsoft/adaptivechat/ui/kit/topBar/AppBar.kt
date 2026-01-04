@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.IconButton
@@ -39,13 +38,14 @@ import com.catsoft.adaptivechat.ui.kit.api.textClause.TextClause
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.mw
 import com.catsoft.adaptivechat.ui.kit.modifier.ph
+import com.catsoft.adaptivechat.ui.kit.navigation.LocalNavController
 import com.catsoft.adaptivechat.ui.kit.text.CFText
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Back
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Close
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TitleStyle
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarStyle
-import com.chatfuel.shared.ui.connection.ConnectionStatus
+import com.catsoft.adaptivechat.ui.kit.connectionStatus.ConnectionStatus
 import com.chatfuel.shared.uiKit.shimmer.ShimmerNavigatorBarItem
 import org.koin.compose.koinInject
 
@@ -227,7 +227,7 @@ private fun TopBarTitle(
             state.titleIcon.invoke()
 
             CFText(
-                title, style = style.copy(color = LocalContentColor.current), modifier = CFModifier.weight(1f), overflow = TextOverflow.Ellipsis
+                title, style = style.copy(color = LocalContentColor.current), modifier = m.weight(1f), overflow = TextOverflow.Ellipsis
             )
         }
     }

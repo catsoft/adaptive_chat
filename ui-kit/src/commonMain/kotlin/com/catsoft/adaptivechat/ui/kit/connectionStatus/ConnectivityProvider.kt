@@ -1,4 +1,4 @@
-package com.chatfuel.shared.ui.connection
+package com.catsoft.adaptivechat.ui.kit.connectionStatus
 
 import dev.jordond.connectivity.Connectivity
 

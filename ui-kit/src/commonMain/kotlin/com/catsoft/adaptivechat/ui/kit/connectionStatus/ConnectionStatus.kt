@@ -1,4 +1,4 @@
-package com.chatfuel.shared.ui.connection
+package com.catsoft.adaptivechat.ui.kit.connectionStatus
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,26 +14,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.chatfuel.palette.accent5_20
-import com.chatfuel.palette.neutral_100
-import com.chatfuel.shared.compose.typography.bodyBold
-import com.chatfuel.shared.localization.Strings
-import com.chatfuel.shared.resources.no_internet_connection
-import com.chatfuel.shared.uiKit.clause.CFText
-import com.chatfuel.shared.uiKit.modifier.CFModifier
-import com.chatfuel.shared.uiKit.utils.h
-import com.chatfuel.shared.uiKit.utils.mw
-import com.chatfuel.shared.uiKit.utils.s
-import com.chatfuel.shared.uiKit.utils.sh
-import com.chatfuel.shared_api.data.text.s
-import com.chatfuel.shared_api.data.text.str
+import com.adaptivechat.localization.resources.no_internet_connection
+import com.catsoft.adaptivechat.localization.Strings
+import com.catsoft.adaptivechat.ui.kit.api.textClause.str
+import com.catsoft.adaptivechat.ui.kit.modifier.h
+import com.catsoft.adaptivechat.ui.kit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.modifier.mw
+import com.catsoft.adaptivechat.ui.kit.modifier.s
+import com.catsoft.adaptivechat.ui.kit.modifier.sh
+import com.catsoft.adaptivechat.ui.kit.text.CFText
 import dev.jordond.connectivity.Connectivity
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun ConnectionStatus(
     viewModel: ConnectivityViewModel = koinViewModel(),
-    modifier: Modifier = CFModifier,
+    modifier: Modifier = m,
 ) {
     val connected: Connectivity.Status by viewModel.isConnected.collectAsStateWithLifecycle()
 

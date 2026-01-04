@@ -11,6 +11,7 @@ plugins {
 
 apply(from = "../common-module-compose.gradle")
 apply(from = "../common-pagings.gradle")
+apply(from = "../common-connectivity.gradle")
 
 kotlin {
 

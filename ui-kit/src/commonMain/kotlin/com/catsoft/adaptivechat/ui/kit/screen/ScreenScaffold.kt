@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.chatfuel.palette.neutral_100
 import com.chatfuel.palette.primary_10
-import com.chatfuel.shared.uiKit.modifier.CFModifier
+import com.chatfuel.shared.uiKit.modifier.m
 import com.chatfuel.shared.uiKit.screens.ui.ScreenScaffoldConfig
 import com.catsoft.adaptivechat.ui.kit.topBar.ChatfuelScreenTopBar
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
@@ -67,7 +67,7 @@ fun <T> LazyScreenScaffold(
         snackbarHost = snackbarHost,
         floatingActionButton = floatingActionButton
     ) { dataState ->
-        LazyColumn(CFModifier.weight(1F), state = listState) {
+        LazyColumn(m.weight(1F), state = listState) {
             content(dataState)
 
             item("lazy_column_bottom_offset") {
@@ -164,7 +164,7 @@ internal fun <T> BaseScreenScaffold(
 
     val scrollState = rememberScrollState()
 
-    val bottomPaddingModifier = if (config.withBottomNavigation) CFModifier else CFModifier.navigationBarsPadding()
+    val bottomPaddingModifier = if (config.withBottomNavigation) m else m.navigationBarsPadding()
 
     Scaffold(
         modifier = modifier.then(bottomPaddingModifier),

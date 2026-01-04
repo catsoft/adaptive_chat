@@ -8,14 +8,14 @@ import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.catsoft.adaptivechat.logger.logger
 import com.catsoft.adaptivechat.ui.kit.api.data.ACData
-import com.chatfuel.common.timber
-import com.chatfuel.shared.uiKit.modifier.CFModifier
+import com.catsoft.adaptivechat.ui.kit.api.textClause.raw
+import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.screen.states.ui.CFErrorDefaultByThrowable
 import com.catsoft.adaptivechat.ui.kit.screen.states.ui.CFLoaderDefault
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState.Companion.setLoading
-import com.chatfuel.shared_api.data.CFData
 
 fun <T> LazyListScope.mapStates(
     data: ACData<T>,
@@ -23,17 +23,17 @@ fun <T> LazyListScope.mapStates(
     error: @Composable LazyItemScope.(Throwable, Modifier) -> Unit = { error, modifier -> CFErrorDefaultByThrowable(error, modifier) },
     content: LazyListScope.(T) -> Unit
 ) {
-    timber().i { "mapStates: $data" }
+    logger().i { "mapStates: $data" }
     when {
         data.isLoading -> {
             item("loading") {
-                loading(CFModifier.fillParentMaxSize())
+                loading(m.fillParentMaxSize())
             }
         }
 
         data.error != null -> {
             item("error") {
-                data.error?.let { error(it, CFModifier.fillParentMaxSize()) }
+                data.error?.let { error(it, m.fillParentMaxSize()) }
             }
         }
 
@@ -45,20 +45,20 @@ fun <T> LazyListScope.mapStates(
 
 @Composable
 fun <T> ColumnScope.mapStates(
-    data: CFData<T>,
+    data: ACData<T>,
     loading: @Composable ColumnScope.(Modifier) -> Unit = { CFLoaderDefault(it) },
     error: @Composable ColumnScope.(Throwable, Modifier) -> Unit = { error, modifier -> CFErrorDefaultByThrowable(error, modifier) },
     content: @Composable ColumnScope.(T) -> Unit
 ) {
-    timber().i { "mapStates: $data" }
+    logger().i { "mapStates: $data" }
     Column {
         when {
             data.isLoading -> {
-                loading(CFModifier)
+                loading(m)
             }
 
             data.error != null -> {
-                data.error?.let { error(it, CFModifier) }
+                data.error?.let { error(it, m) }
             }
 
             else -> {
@@ -70,20 +70,20 @@ fun <T> ColumnScope.mapStates(
 
 @Composable
 fun <T> BoxScope.mapStates(
-    data: CFData<T>,
+    data: ACData<T>,
     loading: @Composable BoxScope.(Modifier) -> Unit = { CFLoaderDefault(it) },
     error: @Composable BoxScope.(Throwable, Modifier) -> Unit = { error, modifier -> CFErrorDefaultByThrowable(error, modifier) },
     content: @Composable BoxScope.(T) -> Unit
 ) {
-    timber().i { "mapStates: $data" }
+    logger().i { "mapStates: $data" }
     Box {
         when {
             data.isLoading -> {
-                loading(CFModifier)
+                loading(m)
             }
 
             data.error != null -> {
-                data.error?.let { error(it, CFModifier) }
+                data.error?.let { error(it, m) }
             }
 
             else -> {
@@ -95,7 +95,7 @@ fun <T> BoxScope.mapStates(
 
 @Composable
 fun <T> mapAppBar(
-    state: CFData<T>,
+    state: ACData<T>,
     contentBar: (T) -> TopBarState
 ): TopBarState {
     when {

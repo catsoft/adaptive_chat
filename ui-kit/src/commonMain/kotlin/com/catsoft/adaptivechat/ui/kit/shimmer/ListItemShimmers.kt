@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.chatfuel.shared.uiKit.modifier.CFModifier
+import com.chatfuel.shared.uiKit.modifier.m
 import com.chatfuel.shared.uiKit.utils.h
 import com.chatfuel.shared.uiKit.utils.mw
 import com.chatfuel.shared.uiKit.utils.s
@@ -24,7 +24,7 @@ fun TitleListItemShimmer(
     withSubtext: Boolean = false,
     withLeadingIcon: Boolean = false,
     withTrailingIcon: Boolean = false,
-    modifier: Modifier = CFModifier
+    modifier: Modifier = m
 ) {
     Box(
         modifier = modifier
@@ -35,7 +35,7 @@ fun TitleListItemShimmer(
     ) {
         Box(modifier = (if (withSubtext) 56 else 48).h, contentAlignment = Alignment.CenterStart) {
             Row(
-                CFModifier.wrapContentSize(),
+                m.wrapContentSize(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 if (withLeadingIcon) {
@@ -46,11 +46,11 @@ fun TitleListItemShimmer(
                     16.sh
                 }
 
-                Column(modifier = CFModifier.weight(1f)) {
+                Column(modifier = m.weight(1f)) {
                     ShimmerBoxHorizontal(
                         height = 18,
                         corners = 10,
-                        modifier = CFModifier.fillMaxWidth(0.3F)
+                        modifier = m.fillMaxWidth(0.3F)
                     )
                     
                     if (withSubtext) {
@@ -58,7 +58,7 @@ fun TitleListItemShimmer(
                         ShimmerBoxHorizontal(
                             height = 14,
                             corners = 9,
-                            modifier = CFModifier.fillMaxWidth(0.5F)
+                            modifier = m.fillMaxWidth(0.5F)
                         )
                     }
                 }
@@ -78,7 +78,7 @@ fun ListItemShimmer(
     withSubtitle: Boolean = false,
     withLeadingIcon: Boolean = false,
     withTrailingIcon: Boolean = false,
-    modifier: Modifier = CFModifier
+    modifier: Modifier = m
 ) {
     Row(
         modifier
@@ -96,14 +96,14 @@ fun ListItemShimmer(
         }
 
         Column(
-            CFModifier
+            m
                 .weight(1f)
                 .padding(top = 8.dp, end = 16.dp, bottom = 8.dp)
         ) {
             ShimmerBoxHorizontal(
                 height = 18,
                 corners = 10,
-                modifier = CFModifier.fillMaxWidth(0.4F)
+                modifier = m.fillMaxWidth(0.4F)
             )
             
             if (withSubtitle) {
@@ -113,7 +113,7 @@ fun ListItemShimmer(
                     ShimmerBoxHorizontal(
                         height = 14,
                         corners = 9,
-                        modifier = CFModifier.fillMaxWidth(0.55F)
+                        modifier = m.fillMaxWidth(0.55F)
                     )
                 }
             }
