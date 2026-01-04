@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -15,19 +15,22 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.adaptivechat.localization.resources.chat_screen_title
 import com.catsoft.adaptivechat.chat.api.model.Message
-import com.catsoft.adaptivechat.chat.api.model.MessageType
 import com.catsoft.adaptivechat.chat.api.navigation.ChatScreens
 import com.catsoft.adaptivechat.chat.ui.input.ChatInput
 import com.catsoft.adaptivechat.chat.ui.messages.MessageBubble
 import com.catsoft.adaptivechat.localization.Strings
-import com.catsoft.adaptivechat.platform.formatTimestamp
-import com.catsoft.adaptivechat.ui.kit.api.textClause.raw
 import com.catsoft.adaptivechat.ui.kit.api.textClause.str
 import com.catsoft.adaptivechat.ui.kit.data.mapStates
+import com.catsoft.adaptivechat.ui.kit.modifier.alCH
+import com.catsoft.adaptivechat.ui.kit.modifier.arC
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.ms
+import com.catsoft.adaptivechat.ui.kit.modifier.p
+import com.catsoft.adaptivechat.ui.kit.modifier.s
+import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.catsoft.adaptivechat.ui.kit.screen.BoxScreenScaffold
 import com.catsoft.adaptivechat.ui.kit.screen.ScreenScaffoldConfig
+import com.catsoft.adaptivechat.ui.kit.text.ACText
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState.Companion.setBackIcon
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
@@ -63,7 +66,7 @@ fun ChatScreen(
             if (messages.isEmpty()) {
                 EmptyState()
             } else {
-                Messages(
+                DataState(
                     messages = messages,
                     listState = listState,
                 )
@@ -75,30 +78,25 @@ fun ChatScreen(
 @Composable
 private fun EmptyState() {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        modifier = ms.p(32),
+        horizontalAlignment = alCH,
+        verticalArrangement = arC,
     ) {
         Icon(
-            imageVector = Icons.Default.Send,
+            imageVector = Icons.AutoMirrored.Default.Send,
             contentDescription = null,
-            modifier = Modifier.size(64.dp),
+            modifier = 64.s,
             tint = MaterialTheme.colorScheme.primary
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            text = "Start a conversation",
-            style = MaterialTheme.typography.headlineSmall,
-            textAlign = TextAlign.Center
+        16.sv
+        ACText(
+            text = Strings.chat_empty_start_conversation.str(),
+            style = MaterialTheme.typography.headlineSmall.copy(textAlign = TextAlign.Center),
         )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = "Send a message or use voice, image, or document input",
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+        8.sv
+        ACText(
+            text = Strings.chat_empty_start_conversation_description.str(),
+            style = MaterialTheme.typography.bodyMedium.copy(textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onSurfaceVariant),
         )
     }
 }
@@ -106,7 +104,7 @@ private fun EmptyState() {
 
 @Composable
 
-private fun Messages(
+private fun DataState(
     messages: List<Message>,
     listState: androidx.compose.foundation.lazy.LazyListState,
 ) {
