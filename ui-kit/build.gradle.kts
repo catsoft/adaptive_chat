@@ -24,6 +24,8 @@ kotlin {
 
             api(libs.room.runtime)
 
+            api(libs.shimmer)
+
             api(libs.serialization.json)
         }
     }

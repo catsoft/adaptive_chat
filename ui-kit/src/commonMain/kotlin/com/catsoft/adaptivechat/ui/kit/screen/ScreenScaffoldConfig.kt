@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.screens.ui
+package com.catsoft.adaptivechat.ui.kit.screen
 
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarScrollBehavior
 

@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.shimmer
+package com.catsoft.adaptivechat.ui.kit.shimmer
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,12 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.chatfuel.shared.uiKit.modifier.m
-import com.chatfuel.shared.uiKit.utils.h
-import com.chatfuel.shared.uiKit.utils.mw
-import com.chatfuel.shared.uiKit.utils.s
-import com.chatfuel.shared.uiKit.utils.sh
-import com.chatfuel.shared.uiKit.utils.sv
+import com.catsoft.adaptivechat.ui.kit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.modifier.s
 import com.valentinilk.shimmer.shimmer
 
 @Composable

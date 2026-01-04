@@ -1,4 +1,4 @@
-package com.chatfuel.shared.uiKit.shimmer
+package com.catsoft.adaptivechat.ui.kit.shimmer
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -22,14 +22,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.chatfuel.palette.neutral_50
-import com.chatfuel.shared.uiKit.modifier.m
-import com.chatfuel.shared.uiKit.utils.h
-import com.chatfuel.shared.uiKit.utils.mw
-import com.chatfuel.shared.uiKit.utils.pe
-import com.chatfuel.shared.uiKit.utils.roundCorners
-import com.chatfuel.shared.uiKit.utils.s
-import com.chatfuel.shared.uiKit.utils.sv
 import com.valentinilk.shimmer.shimmer
 
 val shimmerColor: Color

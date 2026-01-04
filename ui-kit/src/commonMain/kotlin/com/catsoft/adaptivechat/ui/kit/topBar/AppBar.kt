@@ -46,7 +46,7 @@ import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Close
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TitleStyle
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarStyle
 import com.catsoft.adaptivechat.ui.kit.connectionStatus.ConnectionStatus
-import com.chatfuel.shared.uiKit.shimmer.ShimmerNavigatorBarItem
+import com.catsoft.adaptivechat.ui.kit.shimmer.ShimmerNavigatorBarItem
 import org.koin.compose.koinInject
 
 @Composable

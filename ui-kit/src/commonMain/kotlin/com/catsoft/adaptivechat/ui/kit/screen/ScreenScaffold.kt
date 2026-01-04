@@ -35,7 +35,6 @@ import com.catsoft.adaptivechat.ui.kit.modifier.alTC
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.ms
 import com.catsoft.adaptivechat.ui.kit.modifier.sv
-import com.chatfuel.shared.uiKit.screens.ui.ScreenScaffoldConfig
 import com.catsoft.adaptivechat.ui.kit.topBar.ChatfuelScreenTopBar
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarScrollBehavior

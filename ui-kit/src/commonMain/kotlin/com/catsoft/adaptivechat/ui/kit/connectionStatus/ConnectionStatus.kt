@@ -8,6 +8,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.WifiOff
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -22,7 +24,6 @@ import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.mw
 import com.catsoft.adaptivechat.ui.kit.modifier.s
 import com.catsoft.adaptivechat.ui.kit.modifier.sh
-import com.catsoft.adaptivechat.ui.kit.text.CFText
 import dev.jordond.connectivity.Connectivity
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -39,8 +40,10 @@ fun ConnectionStatus(
         modifier = modifier
             .mw()
             .background(
-                accent5_20, RoundedCornerShape(0.dp, 0.dp, 16.dp, 16.dp)
-            ), horizontalAlignment = Alignment.CenterHorizontally
+                MaterialTheme.colorScheme.errorContainer,
+                RoundedCornerShape(0.dp, 0.dp, 16.dp, 16.dp)
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             horizontalArrangement = Arrangement.Center,
@@ -50,11 +53,15 @@ fun ConnectionStatus(
             Icon(
                 imageVector = Icons.Default.WifiOff,
                 contentDescription = Strings.no_internet_connection.s(),
-                tint = neutral_100,
+                tint = MaterialTheme.colorScheme.onErrorContainer,
                 modifier = 24.s
             )
             16.sh
-            CFText(Strings.no_internet_connection.str(), bodyBold.copy(color = neutral_100))
+            ACText(
+                text = Strings.no_internet_connection.str(),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onErrorContainer
+            )
         }
     }
 }
