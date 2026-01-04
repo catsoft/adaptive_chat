@@ -5,6 +5,6 @@ import androidx.compose.ui.Modifier
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 
 @Composable
-fun CFErrorDefaultByThrowable(throwable: Throwable?, modifier: Modifier = m) {
-    //todo
+fun ACShimmerDefault(modifier: Modifier = m) {
+    // todo
 }

@@ -1,69 +1,69 @@
 package com.catsoft.adaptivechat.ui.kit.api.theme
 
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 
 object Spacing {
-    val none: Dp = 0.dp
-    val xxSmall: Dp = 2.dp
-    val xSmall: Dp = 4.dp
-    val small: Dp = 8.dp
-    val medium: Dp = 16.dp
-    val large: Dp = 24.dp
-    val xLarge: Dp = 32.dp
-    val xxLarge: Dp = 48.dp
-    val xxxLarge: Dp = 64.dp
+    val none = 0
+    val xxSmall = 2
+    val xSmall = 4
+    val small = 8
+    val medium = 16
+    val large = 24
+    val xLarge = 32
+    val xxLarge = 48
+    val xxxLarge = 64
 }
 
 object ScreenSpacing {
-    val horizontalPadding: Dp = 16.dp
-    val horizontalPaddingSmall: Dp = 12.dp
-    val horizontalPaddingLarge: Dp = 24.dp
+    val horizontalPadding = 16
+    val horizontalPaddingSmall = 12
+    val horizontalPaddingLarge = 24
     
-    val verticalPadding: Dp = 16.dp
-    val sectionSpacing: Dp = 32.dp
-    val itemSpacing: Dp = 12.dp
+    val verticalPadding = 16
+    val sectionSpacing = 32
+    val itemSpacing = 12
 }
 
 object CornerRadius {
-    val small: Dp = 4.dp
-    val medium: Dp = 8.dp
-    val large: Dp = 16.dp
-    val xLarge: Dp = 24.dp
-    val xxLarge: Dp = 32.dp
-    val circle: Dp = 50.dp
+    val small = 4
+    val medium = 8
+    val large = 16
+    val xLarge = 24
+    val xxLarge = 32
+    val circle = 50
 }
 
 object IconSize {
-    val xSmall: Dp = 12.dp
-    val small: Dp = 16.dp
-    val medium: Dp = 24.dp
-    val large: Dp = 32.dp
-    val xLarge: Dp = 48.dp
-    val xxLarge: Dp = 64.dp
+    val xSmall = 12
+    val small = 16
+    val medium = 24
+    val large = 32
+    val xLarge = 48
+    val xxLarge = 64
 }
 
 object Elevation {
-    val none: Dp = 0.dp
-    val small: Dp = 2.dp
-    val medium: Dp = 4.dp
-    val large: Dp = 8.dp
-    val xLarge: Dp = 16.dp
+    val none = 0
+    val small = 2
+    val medium = 4
+    val large = 8
+    val xLarge = 16
 }
 
 object Size {
-    val avatarSmall: Dp = 32.dp
-    val avatarMedium: Dp = 40.dp
-    val avatarLarge: Dp = 56.dp
+    val avatarSmall = 32
+    val avatarMedium = 40
+    val avatarLarge = 56
     
-    val buttonHeight: Dp = 48.dp
-    val buttonHeightSmall: Dp = 36.dp
-    val buttonHeightLarge: Dp = 56.dp
+    val buttonHeight = 48
+    val buttonHeightSmall = 36
+    val buttonHeightLarge = 56
     
-    val inputHeight: Dp = 48.dp
-    val inputHeightLarge: Dp = 120.dp
+    val inputHeight = 48
+    val inputHeightLarge = 120
     
-    val dividerThickness: Dp = 1.dp
-    val borderWidth: Dp = 1.dp
-    val borderWidthThick: Dp = 2.dp
+    val dividerThickness = 1
+    val borderWidth = 1
+    val borderWidthThick = 2
+
+    val progressBar = 24
 }

@@ -5,7 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Send
+import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
@@ -19,19 +19,11 @@ import com.catsoft.adaptivechat.chat.ui.messages.MessageBubble
 import com.catsoft.adaptivechat.localization.Strings
 import com.catsoft.adaptivechat.ui.kit.api.textClause.str
 import com.catsoft.adaptivechat.ui.kit.data.mapStates
-import com.catsoft.adaptivechat.ui.kit.modifier.alCH
-import com.catsoft.adaptivechat.ui.kit.modifier.arC
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.ms
-import com.catsoft.adaptivechat.ui.kit.modifier.p
-import com.catsoft.adaptivechat.ui.kit.modifier.s
-import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.catsoft.adaptivechat.ui.kit.screen.BoxScreenScaffold
 import com.catsoft.adaptivechat.ui.kit.screen.ScreenScaffoldConfig
-import com.catsoft.adaptivechat.ui.kit.text.ACText
-import com.catsoft.adaptivechat.ui.kit.modifier.colors
-import com.catsoft.adaptivechat.ui.kit.modifier.taC
-import com.catsoft.adaptivechat.ui.kit.modifier.typo
+import com.catsoft.adaptivechat.ui.kit.screen.states.ui.ACEmptyDefault
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState.Companion.setBackIcon
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
@@ -65,7 +57,18 @@ fun ChatScreen(
             }
 
             if (messages.isEmpty()) {
-                EmptyState()
+                ACEmptyDefault(
+                    title = Strings.chat_empty_start_conversation.str(),
+                    description = Strings.chat_empty_start_conversation_description.str(),
+                    icon = {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Default.Chat,
+                            contentDescription = null,
+                            modifier = m.size(64.dp),
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                )
             } else {
                 DataState(
                     messages = messages,
@@ -75,33 +78,6 @@ fun ChatScreen(
         }
     }
 }
-
-@Composable
-private fun EmptyState() {
-    Column(
-        modifier = ms.p(32),
-        horizontalAlignment = alCH,
-        verticalArrangement = arC,
-    ) {
-        Icon(
-            imageVector = Icons.AutoMirrored.Default.Send,
-            contentDescription = null,
-            modifier = 64.s,
-            tint = colors.primary
-        )
-        16.sv
-        ACText(
-            text = Strings.chat_empty_start_conversation.str(),
-            style = typo.headlineSmall.copy(textAlign = taC),
-        )
-        8.sv
-        ACText(
-            text = Strings.chat_empty_start_conversation_description.str(),
-            style = typo.bodyMedium.copy(textAlign = taC, color = colors.onSurfaceVariant),
-        )
-    }
-}
-
 
 @Composable
 
