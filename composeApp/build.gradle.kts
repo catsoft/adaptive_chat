@@ -28,7 +28,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.localization)
+            api(projects.localization)
             implementation(projects.logger)
 
             implementation(projects.uiKit)
@@ -61,6 +61,14 @@ kotlin {
 
 android {
     namespace = "com.catsoft.adaptivechat"
+    
+    sourceSets {
+        getByName("main") {
+            assets.srcDirs(
+                layout.buildDirectory.dir("generatedLocalizationRes")
+            )
+        }
+    }
 
     defaultConfig {
         multiDexEnabled = true
@@ -95,4 +103,17 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+}
+
+val copyLocalizationResources = tasks.register<Copy>("copyLocalizationResources") {
+    dependsOn(":localization:prepareComposeResourcesTaskForCommonMain")
+    
+    from(project(":localization").file("build/generated/compose/resourceGenerator/preparedResources/commonMain/composeResources"))
+    into(layout.buildDirectory.dir("generatedLocalizationRes/composeResources/com.adaptivechat.localization.resources"))
+}
+
+afterEvaluate {
+    tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }.configureEach {
+        dependsOn(copyLocalizationResources)
+    }
 }
