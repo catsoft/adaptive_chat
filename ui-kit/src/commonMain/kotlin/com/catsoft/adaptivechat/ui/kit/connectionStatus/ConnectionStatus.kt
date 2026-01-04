@@ -24,6 +24,7 @@ import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.mw
 import com.catsoft.adaptivechat.ui.kit.modifier.s
 import com.catsoft.adaptivechat.ui.kit.modifier.sh
+import com.catsoft.adaptivechat.ui.kit.text.ACText
 import dev.jordond.connectivity.Connectivity
 import org.koin.compose.viewmodel.koinViewModel
 

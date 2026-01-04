@@ -11,8 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.catsoft.adaptivechat.ui.kit.modifier.h
 import com.catsoft.adaptivechat.ui.kit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.modifier.mw
 import com.catsoft.adaptivechat.ui.kit.modifier.s
+import com.catsoft.adaptivechat.ui.kit.modifier.sh
+import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.valentinilk.shimmer.shimmer
 
 @Composable
