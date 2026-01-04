@@ -13,7 +13,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,20 +22,22 @@ import androidx.compose.ui.unit.dp
 import com.catsoft.adaptivechat.chat.api.model.Message
 import com.catsoft.adaptivechat.chat.api.model.MessageType
 import com.catsoft.adaptivechat.platform.formatTimestamp
+import com.catsoft.adaptivechat.ui.kit.modifier.colors
+import com.catsoft.adaptivechat.ui.kit.modifier.typo
 
 
 @Composable
 internal fun MessageBubble(message: Message) {
     val alignment = if (message.isFromUser) Alignment.End else Alignment.Start
     val backgroundColor = if (message.isFromUser) {
-        MaterialTheme.colorScheme.primaryContainer
+        colors.primaryContainer
     } else {
-        MaterialTheme.colorScheme.secondaryContainer
+        colors.secondaryContainer
     }
     val textColor = if (message.isFromUser) {
-        MaterialTheme.colorScheme.onPrimaryContainer
+        colors.onPrimaryContainer
     } else {
-        MaterialTheme.colorScheme.onSecondaryContainer
+        colors.onSecondaryContainer
     }
 
     Column(
@@ -69,7 +70,7 @@ internal fun MessageBubble(message: Message) {
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
                             text = message.type.name,
-                            style = MaterialTheme.typography.labelSmall,
+                            style = typo.labelSmall,
                             color = textColor
                         )
                     }
@@ -78,7 +79,7 @@ internal fun MessageBubble(message: Message) {
 
                 Text(
                     text = message.content,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = typo.bodyMedium,
                     color = textColor
                 )
 
@@ -86,7 +87,7 @@ internal fun MessageBubble(message: Message) {
 
                 Text(
                     text = formatTimestamp(message.timestamp),
-                    style = MaterialTheme.typography.labelSmall,
+                    style = typo.labelSmall,
                     color = textColor.copy(alpha = 0.7f)
                 )
             }

@@ -10,7 +10,6 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +20,8 @@ import com.catsoft.adaptivechat.conversation.domain.Conversation
 import com.catsoft.adaptivechat.conversation.viewmodel.ConversationsViewModel
 import com.catsoft.adaptivechat.platform.formatDate
 import com.catsoft.adaptivechat.ui.kit.modifier.wcH
+import com.catsoft.adaptivechat.ui.kit.modifier.colors
+import com.catsoft.adaptivechat.ui.kit.modifier.typo
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -38,8 +39,8 @@ fun ConversationsScreen(viewModel: ConversationsViewModel = koinViewModel()) {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    containerColor = colors.primaryContainer,
+                    titleContentColor = colors.onPrimaryContainer
                 )
             )
         },
@@ -69,18 +70,18 @@ fun ConversationsScreen(viewModel: ConversationsViewModel = koinViewModel()) {
                         imageVector = Icons.Default.Add,
                         contentDescription = null,
                         modifier = Modifier.size(64.dp),
-                        tint = MaterialTheme.colorScheme.primary
+                        tint = colors.primary
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         text = "No conversations yet",
-                        style = MaterialTheme.typography.headlineSmall
+                        style = typo.headlineSmall
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = "Tap the + button to start a new chat",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        style = typo.bodyMedium,
+                        color = colors.onSurfaceVariant
                     )
                 }
             } else {
@@ -111,7 +112,7 @@ fun ConversationItem(
             .fillMaxWidth()
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(12.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant
+        color = colors.surfaceVariant
     ) {
         Row(
             modifier = Modifier
@@ -123,7 +124,7 @@ fun ConversationItem(
                 imageVector = Icons.Default.Add,
                 contentDescription = null,
                 modifier = Modifier.size(40.dp),
-                tint = MaterialTheme.colorScheme.primary
+                tint = colors.primary
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column(
@@ -131,7 +132,7 @@ fun ConversationItem(
             ) {
                 Text(
                     text = conversation.title,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = typo.titleMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -139,18 +140,18 @@ fun ConversationItem(
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = conversation.lastMessage,
-                        style = MaterialTheme.typography.bodySmall,
+                        style = typo.bodySmall,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = colors.onSurfaceVariant
                     )
                 }
             }
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = formatDate(conversation.timestamp),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                style = typo.labelSmall,
+                color = colors.onSurfaceVariant
             )
         }
     }

@@ -28,6 +28,12 @@ kotlin {
         }
 
         commonMain.dependencies {
+            implementation(projects.localization)
+            implementation(projects.logger)
+
+            implementation(projects.uiKit)
+            implementation(projects.uiKitApi)
+
             implementation(projects.shared)
             implementation(projects.sharedApi)
 
@@ -35,7 +41,7 @@ kotlin {
             implementation(projects.chatApi)
 
             implementation(projects.agent)
-            api(projects.agentApi)
+            implementation(projects.agentApi)
 
             implementation(projects.conversation)
             implementation(projects.conversationApi)

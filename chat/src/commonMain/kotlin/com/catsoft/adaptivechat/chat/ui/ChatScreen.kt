@@ -6,13 +6,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.adaptivechat.localization.resources.chat_empty_start_conversation
+import com.adaptivechat.localization.resources.chat_empty_start_conversation_description
 import com.adaptivechat.localization.resources.chat_screen_title
 import com.catsoft.adaptivechat.chat.api.model.Message
 import com.catsoft.adaptivechat.chat.api.navigation.ChatScreens
@@ -31,6 +29,9 @@ import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.catsoft.adaptivechat.ui.kit.screen.BoxScreenScaffold
 import com.catsoft.adaptivechat.ui.kit.screen.ScreenScaffoldConfig
 import com.catsoft.adaptivechat.ui.kit.text.ACText
+import com.catsoft.adaptivechat.ui.kit.modifier.colors
+import com.catsoft.adaptivechat.ui.kit.modifier.taC
+import com.catsoft.adaptivechat.ui.kit.modifier.typo
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState.Companion.setBackIcon
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
@@ -86,17 +87,17 @@ private fun EmptyState() {
             imageVector = Icons.AutoMirrored.Default.Send,
             contentDescription = null,
             modifier = 64.s,
-            tint = MaterialTheme.colorScheme.primary
+            tint = colors.primary
         )
         16.sv
         ACText(
             text = Strings.chat_empty_start_conversation.str(),
-            style = MaterialTheme.typography.headlineSmall.copy(textAlign = TextAlign.Center),
+            style = typo.headlineSmall.copy(textAlign = taC),
         )
         8.sv
         ACText(
             text = Strings.chat_empty_start_conversation_description.str(),
-            style = MaterialTheme.typography.bodyMedium.copy(textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onSurfaceVariant),
+            style = typo.bodyMedium.copy(textAlign = taC, color = colors.onSurfaceVariant),
         )
     }
 }
