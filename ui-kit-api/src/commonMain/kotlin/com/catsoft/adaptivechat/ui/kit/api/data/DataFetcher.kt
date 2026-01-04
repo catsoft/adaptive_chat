@@ -1,7 +1,5 @@
-package com.chatfuel.shared_api.data
+package com.catsoft.adaptivechat.ui.kit.api.data
 
-import com.catsoft.adaptivechat.ui.kit.api.data.CFData
-import com.catsoft.adaptivechat.ui.kit.api.data.FetchPolicy
 import kotlinx.coroutines.flow.Flow
 
 interface DataFetcher<T> {
