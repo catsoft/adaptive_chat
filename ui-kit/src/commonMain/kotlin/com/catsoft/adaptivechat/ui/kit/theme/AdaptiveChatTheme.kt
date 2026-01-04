@@ -139,7 +139,7 @@ fun AdaptiveChatTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
+    val colorScheme = if (darkTheme) LightColorScheme else DarkColorScheme
 
     SetPlatformTheme(colorScheme, darkTheme)
 
