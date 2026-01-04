@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -37,11 +38,14 @@ import com.catsoft.adaptivechat.logger.logger
 import com.catsoft.adaptivechat.ui.kit.api.textClause.TextClause
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.mw
+import com.catsoft.adaptivechat.ui.kit.modifier.ph
+import com.catsoft.adaptivechat.ui.kit.text.CFText
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Back
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Close
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TitleStyle
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarStyle
+import com.chatfuel.shared.ui.connection.ConnectionStatus
 import com.chatfuel.shared.uiKit.shimmer.ShimmerNavigatorBarItem
 import org.koin.compose.koinInject
 
@@ -72,7 +76,7 @@ fun ChatfuelScreenTopBar(
     Column(columnModifier) {
         AppBarWithState(state, modifier, scrollBehavior, currentScreen, canNavigateBack, navigateUp)
 
-        val internetModifier = if (state?.style == null || state.style == TopBarStyle.Hidden) CFModifier.statusBarsPadding() else CFModifier
+        val internetModifier = if (state?.style == null || state.style == TopBarStyle.Hidden) m.statusBarsPadding() else m
         ConnectionStatus(modifier = internetModifier)
     }
 }
@@ -197,9 +201,9 @@ private fun TopBarNavigationIcon(canNavigateBack: Boolean, state: TopBarState, n
         if (state.backIcon == BackIconState.None) return
         IconButton(onClick = navigateUp) {
             when (state.backIcon) {
-                Back -> Icons.AutoMirrored.ArrowBack
+                Back -> Icons.AutoMirrored.Default.ArrowBack
                 Close -> Icons.Default.Close
-                else -> Icons.AutoMirrored.ArrowBack
+                else -> Icons.AutoMirrored.Default.ArrowBack
             }
         }
     }
@@ -223,7 +227,7 @@ private fun TopBarTitle(
             state.titleIcon.invoke()
 
             CFText(
-                title, style = style.copy(color = LocalContentColor.current), modifier = CFModifier.weight(1f), overflow = TextOverflow.Ellipsis
+                title, style = style.copy(color = LocalContentColor.current), modifier = m.weight(1f), overflow = TextOverflow.Ellipsis
             )
         }
     }
