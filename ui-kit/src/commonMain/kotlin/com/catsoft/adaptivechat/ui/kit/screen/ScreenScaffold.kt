@@ -30,18 +30,14 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.chatfuel.palette.neutral_100
-import com.chatfuel.palette.primary_10
-import com.chatfuel.shared.uiKit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.api.delegates.StateComposableContent
+import com.catsoft.adaptivechat.ui.kit.modifier.m
+import com.catsoft.adaptivechat.ui.kit.modifier.ms
+import com.catsoft.adaptivechat.ui.kit.modifier.sv
 import com.chatfuel.shared.uiKit.screens.ui.ScreenScaffoldConfig
 import com.catsoft.adaptivechat.ui.kit.topBar.ChatfuelScreenTopBar
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarScrollBehavior
-import com.chatfuel.shared.uiKit.utils.alignTopCenter
-import com.chatfuel.shared.uiKit.utils.ms
-import com.chatfuel.shared.uiKit.utils.sv
-import com.chatfuel.shared.viewModels.CFViewModel
-import com.chatfuel.shared_api.ui.delegates.StateComposableContent
 
 typealias TopBarStateComposableContent<T> = @Composable (T) -> TopBarState
 
