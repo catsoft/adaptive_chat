@@ -64,6 +64,12 @@ inline val alC: Alignment get() = Alignment.Center
 inline val alCE: Alignment get() = Alignment.CenterEnd
 
 /**
+ * Shortcut for [Alignment.CenterVertically]
+ * @see androidx.compose.ui.Alignment.CenterVertically
+ */
+inline val alCV: Alignment.Vertical get() = Alignment.CenterVertically
+
+/**
  * Shortcut for [Alignment.BottomStart]
  * @see androidx.compose.ui.Alignment.BottomStart
  */

@@ -1,0 +1,128 @@
+package com.chatfuel.shared.uiKit.shimmer
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.chatfuel.shared.uiKit.modifier.CFModifier
+import com.chatfuel.shared.uiKit.utils.h
+import com.chatfuel.shared.uiKit.utils.mw
+import com.chatfuel.shared.uiKit.utils.s
+import com.chatfuel.shared.uiKit.utils.sh
+import com.chatfuel.shared.uiKit.utils.sv
+import com.valentinilk.shimmer.shimmer
+
+@Composable
+fun TitleListItemShimmer(
+    withSubtext: Boolean = false,
+    withLeadingIcon: Boolean = false,
+    withTrailingIcon: Boolean = false,
+    modifier: Modifier = CFModifier
+) {
+    Box(
+        modifier = modifier
+            .shimmer()
+            .h(if (withSubtext) 56 else 48)
+            .mw(),
+        contentAlignment = Alignment.CenterStart
+    ) {
+        Box(modifier = (if (withSubtext) 56 else 48).h, contentAlignment = Alignment.CenterStart) {
+            Row(
+                CFModifier.wrapContentSize(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (withLeadingIcon) {
+                    Box(56.s, contentAlignment = Alignment.Center) {
+                        ShimmerBox(size = 24, corners = 12)
+                    }
+                } else {
+                    16.sh
+                }
+
+                Column(modifier = CFModifier.weight(1f)) {
+                    ShimmerBoxHorizontal(
+                        height = 18,
+                        corners = 10,
+                        modifier = CFModifier.fillMaxWidth(0.3F)
+                    )
+                    
+                    if (withSubtext) {
+                        2.sv
+                        ShimmerBoxHorizontal(
+                            height = 14,
+                            corners = 9,
+                            modifier = CFModifier.fillMaxWidth(0.5F)
+                        )
+                    }
+                }
+
+                if (withTrailingIcon) {
+                    Box(56.s, contentAlignment = Alignment.Center) {
+                        ShimmerBox(size = 24, corners = 12)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ListItemShimmer(
+    withSubtitle: Boolean = false,
+    withLeadingIcon: Boolean = false,
+    withTrailingIcon: Boolean = false,
+    modifier: Modifier = CFModifier
+) {
+    Row(
+        modifier
+            .shimmer()
+            .defaultMinSize(minHeight = 56.dp)
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        if (withLeadingIcon) {
+            Box(56.s, contentAlignment = Alignment.Center) {
+                ShimmerBox(size = 24, corners = 12)
+            }
+        } else {
+            16.sh
+        }
+
+        Column(
+            CFModifier
+                .weight(1f)
+                .padding(top = 8.dp, end = 16.dp, bottom = 8.dp)
+        ) {
+            ShimmerBoxHorizontal(
+                height = 18,
+                corners = 10,
+                modifier = CFModifier.fillMaxWidth(0.4F)
+            )
+            
+            if (withSubtitle) {
+                6.sv
+                Row {
+                    // Subtitle shimmer
+                    ShimmerBoxHorizontal(
+                        height = 14,
+                        corners = 9,
+                        modifier = CFModifier.fillMaxWidth(0.55F)
+                    )
+                }
+            }
+        }
+
+        if (withTrailingIcon) {
+            Box(56.s, contentAlignment = Alignment.Center) {
+                ShimmerBox(size = 24, corners = 12)
+            }
+        }
+    }
+}
