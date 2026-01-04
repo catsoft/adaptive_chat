@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.catsoft.adaptivechat.ui.kit.api.delegates.StateComposableContent
+import com.catsoft.adaptivechat.ui.kit.modifier.alTC
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 import com.catsoft.adaptivechat.ui.kit.modifier.ms
 import com.catsoft.adaptivechat.ui.kit.modifier.sv
@@ -38,13 +39,14 @@ import com.chatfuel.shared.uiKit.screens.ui.ScreenScaffoldConfig
 import com.catsoft.adaptivechat.ui.kit.topBar.ChatfuelScreenTopBar
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.TopBarScrollBehavior
+import com.catsoft.adaptivechat.ui.kit.viewModel.ACViewModel
 
 typealias TopBarStateComposableContent<T> = @Composable (T) -> TopBarState
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun <T> LazyScreenScaffold(
-    viewModel: CFViewModel<T>,
+    viewModel: ACViewModel<T>,
     topBarState: TopBarStateComposableContent<T>,
     scaffoldConfig: ScreenScaffoldConfig,
     modifier: Modifier = ms,
@@ -80,7 +82,7 @@ fun <T> LazyScreenScaffold(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun <T> ColumnScreenScaffold(
-    viewModel: CFViewModel<T>,
+    viewModel: ACViewModel<T>,
     state: TopBarStateComposableContent<T>,
     config: ScreenScaffoldConfig,
     modifier: Modifier = ms,
@@ -103,7 +105,7 @@ fun <T> ColumnScreenScaffold(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun <T> BoxScreenScaffold(
-    viewModel: CFViewModel<T>,
+    viewModel: ACViewModel<T>,
     state: TopBarStateComposableContent<T>,
     config: ScreenScaffoldConfig,
     modifier: Modifier = ms,
@@ -128,7 +130,7 @@ fun <T> BoxScreenScaffold(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun <T> BaseScreenScaffold(
-    viewModel: CFViewModel<T>,
+    viewModel: ACViewModel<T>,
     state: TopBarStateComposableContent<T>,
     config: ScreenScaffoldConfig,
     modifier: Modifier,
@@ -172,7 +174,6 @@ internal fun <T> BaseScreenScaffold(
         },
         snackbarHost = { snackbarHost(dataState) },
         floatingActionButton = { floatingActionButton(dataState) },
-        containerColor = neutral_100,
         contentWindowInsets = WindowInsets.ime
     ) { innerPadding ->
         Box(
@@ -199,12 +200,7 @@ internal fun <T> BaseScreenScaffold(
             }
 
             if (config.withRefreshing) {
-                PullRefreshIndicator(
-                    isRefreshing,
-                    pullRefreshState,
-                    alignTopCenter,
-                    contentColor = primary_10
-                )
+                PullRefreshIndicator(isRefreshing, pullRefreshState, alTC)
             }
         }
     }
