@@ -4,15 +4,14 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.getString
 
 interface StringsManager {
-    suspend fun getString(resId: StringResource, args: List<String> = emptyList()): String
+    suspend fun getString(resId: StringResource): String
+
+    suspend fun getString(resId: StringResource, vararg formatArgs: Any): String
 }
 
 class StringsManagerImpl : StringsManager {
-    override suspend fun getString(resId: StringResource, args: List<String>): String {
-        return if (args.isEmpty()) {
-            getString(resId)
-        } else {
-            getString(resId, *args.toTypedArray())
-        }
-    }
+    override suspend fun getString(resId: StringResource): String = org.jetbrains.compose.resources.getString(resId)
+
+    override suspend fun getString(resId: StringResource, vararg formatArgs: Any): String = org.jetbrains.compose.resources.getString(resId, *formatArgs)
 }
+

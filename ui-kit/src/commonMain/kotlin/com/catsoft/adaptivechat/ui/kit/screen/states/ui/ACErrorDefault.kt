@@ -5,6 +5,6 @@ import androidx.compose.ui.Modifier
 import com.catsoft.adaptivechat.ui.kit.modifier.m
 
 @Composable
-fun CFLoaderDefault(modifier: Modifier = m) {
-    // todo
+fun ACErrorDefaultByThrowable(throwable: Throwable?, modifier: Modifier = m) {
+    //todo
 }

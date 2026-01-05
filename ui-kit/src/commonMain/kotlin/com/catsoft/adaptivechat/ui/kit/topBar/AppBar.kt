@@ -17,7 +17,6 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBar
@@ -40,6 +39,8 @@ import com.catsoft.adaptivechat.ui.kit.modifier.mw
 import com.catsoft.adaptivechat.ui.kit.modifier.ph
 import com.catsoft.adaptivechat.ui.kit.navigation.LocalNavController
 import com.catsoft.adaptivechat.ui.kit.text.ACText
+import com.catsoft.adaptivechat.ui.kit.modifier.colors
+import com.catsoft.adaptivechat.ui.kit.modifier.typo
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Back
 import com.catsoft.adaptivechat.ui.kit.topBar.states.BackIconState.Close
@@ -68,10 +69,10 @@ fun ChatfuelScreenTopBar(
         mw.animateContentSize()
     }.shadow(
         elevation = 16.dp,
-        spotColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f),
-        ambientColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.05f),
+        spotColor = colors.onSurface.copy(alpha = 0.1f),
+        ambientColor = colors.onSurface.copy(alpha = 0.05f),
         shape = RectangleShape,
-    ).background(MaterialTheme.colorScheme.surface)
+    ).background(colors.surface)
 
     Column(columnModifier) {
         AppBarWithState(state, modifier, scrollBehavior, currentScreen, canNavigateBack, navigateUp)
@@ -113,7 +114,7 @@ private fun AppBarWithState(
         Surface(
             modifier = appBarModifier,
             shape = RectangleShape,
-            color = MaterialTheme.colorScheme.surface
+            color = colors.surface
         ) {
             when (state?.style) {
                 TopBarStyle.CenterAlignedTopAppBar -> {
@@ -123,10 +124,10 @@ private fun AppBarWithState(
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
                         actions = { TopBarActions(state) },
                         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.surface,
-                            titleContentColor = MaterialTheme.colorScheme.onSurface,
-                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
-                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                            containerColor = colors.surface,
+                            titleContentColor = colors.onSurface,
+                            navigationIconContentColor = colors.onSurface,
+                            actionIconContentColor = colors.onSurface
                         ),
                         scrollBehavior = scrollBehavior
                     )
@@ -136,10 +137,10 @@ private fun AppBarWithState(
                     LargeTopAppBar(
                         title = { TopBarTitle(state.title ?: TextClause.Empty, state) },
                         colors = TopAppBarDefaults.largeTopAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.surface,
-                            titleContentColor = MaterialTheme.colorScheme.onSurface,
-                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
-                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                            containerColor = colors.surface,
+                            titleContentColor = colors.onSurface,
+                            navigationIconContentColor = colors.onSurface,
+                            actionIconContentColor = colors.onSurface
                         ),
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
@@ -152,10 +153,10 @@ private fun AppBarWithState(
                     MediumTopAppBar(
                         title = { TopBarTitle(state.title ?: TextClause.Empty, state) },
                         colors = TopAppBarDefaults.mediumTopAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.surface,
-                            titleContentColor = MaterialTheme.colorScheme.onSurface,
-                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
-                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                            containerColor = colors.surface,
+                            titleContentColor = colors.onSurface,
+                            navigationIconContentColor = colors.onSurface,
+                            actionIconContentColor = colors.onSurface
                         ),
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
@@ -168,10 +169,10 @@ private fun AppBarWithState(
                     TopAppBar(
                         title = { TopBarTitle(state.title ?: TextClause.Empty, state) },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.surface,
-                            titleContentColor = MaterialTheme.colorScheme.onSurface,
-                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
-                            actionIconContentColor = MaterialTheme.colorScheme.onSurface
+                            containerColor = colors.surface,
+                            titleContentColor = colors.onSurface,
+                            navigationIconContentColor = colors.onSurface,
+                            actionIconContentColor = colors.onSurface
                         ),
                         modifier = appBarModifier,
                         navigationIcon = { TopBarNavigationIcon(canNavigateBack, state, navigateUp) },
@@ -219,9 +220,9 @@ private fun TopBarTitle(
             state.customTitle.invoke()
         } else {
             val style = when (state.titleStyle) {
-                TitleStyle.Normal -> MaterialTheme.typography.titleMedium
-                TitleStyle.Big -> MaterialTheme.typography.headlineMedium
-                TitleStyle.Large -> MaterialTheme.typography.headlineLarge
+                TitleStyle.Normal -> typo.titleMedium
+                TitleStyle.Big -> typo.headlineMedium
+                TitleStyle.Large -> typo.headlineLarge
             }
 
             state.titleIcon.invoke()

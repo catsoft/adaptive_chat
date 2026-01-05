@@ -23,6 +23,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            api(projects.localization)
             api(projects.uiKitApi)
             api(projects.logger)
 

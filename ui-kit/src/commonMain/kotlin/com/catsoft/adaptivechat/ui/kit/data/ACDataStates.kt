@@ -12,15 +12,15 @@ import com.catsoft.adaptivechat.logger.logger
 import com.catsoft.adaptivechat.ui.kit.api.data.ACData
 import com.catsoft.adaptivechat.ui.kit.api.textClause.raw
 import com.catsoft.adaptivechat.ui.kit.modifier.m
-import com.catsoft.adaptivechat.ui.kit.screen.states.ui.CFErrorDefaultByThrowable
-import com.catsoft.adaptivechat.ui.kit.screen.states.ui.CFLoaderDefault
+import com.catsoft.adaptivechat.ui.kit.screen.states.ui.ACErrorDefaultByThrowable
+import com.catsoft.adaptivechat.ui.kit.screen.states.ui.ACLoaderDefault
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState
 import com.catsoft.adaptivechat.ui.kit.topBar.TopBarState.Companion.setLoading
 
 fun <T> LazyListScope.mapStates(
     data: ACData<T>,
-    loading: @Composable LazyItemScope.(Modifier) -> Unit = { CFLoaderDefault(it) },
-    error: @Composable LazyItemScope.(Throwable, Modifier) -> Unit = { error, modifier -> CFErrorDefaultByThrowable(error, modifier) },
+    loading: @Composable LazyItemScope.(Modifier) -> Unit = { ACLoaderDefault(it) },
+    error: @Composable LazyItemScope.(Throwable, Modifier) -> Unit = { error, modifier -> ACErrorDefaultByThrowable(error, modifier) },
     content: LazyListScope.(T) -> Unit
 ) {
     logger().i { "mapStates: $data" }
@@ -46,8 +46,8 @@ fun <T> LazyListScope.mapStates(
 @Composable
 fun <T> ColumnScope.mapStates(
     data: ACData<T>,
-    loading: @Composable ColumnScope.(Modifier) -> Unit = { CFLoaderDefault(it) },
-    error: @Composable ColumnScope.(Throwable, Modifier) -> Unit = { error, modifier -> CFErrorDefaultByThrowable(error, modifier) },
+    loading: @Composable ColumnScope.(Modifier) -> Unit = { ACLoaderDefault(it) },
+    error: @Composable ColumnScope.(Throwable, Modifier) -> Unit = { error, modifier -> ACErrorDefaultByThrowable(error, modifier) },
     content: @Composable ColumnScope.(T) -> Unit
 ) {
     logger().i { "mapStates: $data" }
@@ -71,8 +71,8 @@ fun <T> ColumnScope.mapStates(
 @Composable
 fun <T> BoxScope.mapStates(
     data: ACData<T>,
-    loading: @Composable BoxScope.(Modifier) -> Unit = { CFLoaderDefault(it) },
-    error: @Composable BoxScope.(Throwable, Modifier) -> Unit = { error, modifier -> CFErrorDefaultByThrowable(error, modifier) },
+    loading: @Composable BoxScope.(Modifier) -> Unit = { ACLoaderDefault(it) },
+    error: @Composable BoxScope.(Throwable, Modifier) -> Unit = { error, modifier -> ACErrorDefaultByThrowable(error, modifier) },
     content: @Composable BoxScope.(T) -> Unit
 ) {
     logger().i { "mapStates: $data" }

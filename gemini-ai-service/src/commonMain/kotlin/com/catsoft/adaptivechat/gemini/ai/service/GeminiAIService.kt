@@ -13,6 +13,7 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.delay
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import kotlin.time.Clock
 
 @Serializable
 internal data class GeminiRequest(
@@ -48,7 +49,11 @@ internal data class Candidate(
     val content: Content
 )
 
-class GeminiAIService(private val apiKey: String) : AIService {
+class GeminiAIService : AIService {
+
+    // todo
+    private val apiKey: String = ""
+
     private val client = HttpClient {
         install(ContentNegotiation) {
             json(Json {
@@ -102,7 +107,7 @@ class GeminiAIService(private val apiKey: String) : AIService {
             return Message(
                 id = IdGenerator.generate(),
                 content = responseText,
-                timestamp = System.currentTimeMillis(),
+                timestamp = Clock.System.now().toEpochMilliseconds(),
                 isFromUser = false,
                 type = MessageType.TEXT
             )
@@ -114,7 +119,7 @@ class GeminiAIService(private val apiKey: String) : AIService {
             return Message(
                 id = IdGenerator.generate(),
                 content = "Sorry, I couldn't process your request. Please try again.",
-                timestamp = System.currentTimeMillis(),
+                timestamp = Clock.System.now().toEpochMilliseconds(),
                 isFromUser = false,
                 type = MessageType.TEXT
             )
