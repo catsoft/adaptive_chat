@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_screen_title">AI Chat</string>
+    <string name="chat_input_hint">Type your message...</string>
+    <string name="chat_empty_start_conversation">Start a conversation</string>
+    <string name="chat_empty_start_conversation_description">Send a message or use voice, image</string>
+</resources>

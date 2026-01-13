@@ -1,39 +1,44 @@
+import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
 import org.gradle.api.Project
+import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.compose.resources.ResourcesExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-val org.gradle.api.artifacts.dsl.DependencyHandler.compose: ComposePlugin.Dependencies
+val DependencyHandler.compose: ComposePlugin.Dependencies
     get() =
         (this as ExtensionAware).extensions.getByName("compose") as ComposePlugin.Dependencies
 
-val org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.`compose`: ComposePlugin.Dependencies
+val KotlinMultiplatformExtension.`compose`: ComposePlugin.Dependencies
     get() =
         (this as ExtensionAware).extensions.getByName("compose") as ComposePlugin.Dependencies
 
-fun Project.configureTargets(withBaseName: Boolean = true) {
+fun Project.configureTargets() {
     val targets = project.findProperty("targets")?.toString()?.split(",")?.map { it.trim() }.orEmpty()
 
     if (targets.contains("android")) {
-        configureAndroidKmpTarget(isLibrary = withBaseName)
+        configureAndroidKmpTarget()
     }
     if (targets.contains("ios")) {
-        configureIosKmpTargets(withBaseName = withBaseName)
+        configureIosKmpTargets()
     }
 }
 
-fun Project.configureModuleNamespace(isLibrary: Boolean) {
+fun Project.configureModuleNamespace() {
     val namespace = "com.adaptivechat.${getFormattedName()}"
-    extensions.findByType<com.android.build.gradle.BaseExtension>()?.apply {
-        this.namespace = namespace
-    }
+//    extensions.findByType<CommonExtension>()?.apply {
+//        this.namespace = namespace
+//    }
 
-    if (isLibrary) {
-        setAndroidLibraryNamespace(namespace = namespace)
+    configure<KotlinMultiplatformExtension> {
+        configure<KotlinMultiplatformAndroidLibraryExtension> {
+            this.namespace = namespace
+        }
     }
 
     println("Module ${project.name} -> namespace: ${getFormattedName()}")
@@ -55,4 +60,4 @@ fun Project.configureComposeResources() {
 fun Project.getFormattedName(): String = when {
     hasProperty("moduleNamespace") -> property("moduleNamespace") as String
     else -> name.replace("-", "_")
-}.lowercase()
+}.lowercase().replace("composeapp", "ComposeApp")

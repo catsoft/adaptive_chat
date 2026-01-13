@@ -10,15 +10,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.catsoft.adaptivechat.agent.domain.Agent
 import com.catsoft.adaptivechat.agent.viewmodel.AgentsViewModel
+import com.catsoft.adaptivechat.ui.kit.modifier.colors
+import com.catsoft.adaptivechat.ui.kit.modifier.taC
+import com.catsoft.adaptivechat.ui.kit.modifier.typo
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -35,7 +36,7 @@ fun AgentsScreen(viewModel: AgentsViewModel = koinViewModel()) {
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = colors.primaryContainer
                 )
             )
         }
@@ -71,7 +72,7 @@ fun AgentCard(
             .aspectRatio(1f)
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.secondaryContainer,
+        color = colors.secondaryContainer,
         shadowElevation = 4.dp
     ) {
         Column(
@@ -83,22 +84,22 @@ fun AgentCard(
         ) {
             Text(
                 text = agent.icon,
-                style = MaterialTheme.typography.displayLarge,
-                textAlign = TextAlign.Center
+                style = typo.displayLarge,
+                textAlign = taC
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = agent.name,
-                style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSecondaryContainer
+                style = typo.titleMedium,
+                textAlign = taC,
+                color = colors.onSecondaryContainer
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = agent.description,
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
+                style = typo.bodySmall,
+                textAlign = taC,
+                color = colors.onSecondaryContainer.copy(alpha = 0.7f)
             )
         }
     }

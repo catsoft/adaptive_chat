@@ -1,10 +1,8 @@
-import com.android.build.api.dsl.androidLibrary
-import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.android.application)
-    id("configure-application")
+    alias(libs.plugins.android.library)
+    id("configure-library")
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.compose.compiler)
 }
@@ -20,6 +18,12 @@ val appVersionCode: Int by rootProject.extra
 
 kotlin {
     sourceSets {
+        commonMain {
+            resources.srcDirs(
+                layout.buildDirectory.dir("generatedLocalizationRes")
+            )
+        }
+
         androidMain.dependencies {
             implementation(libs.installreferrer)
             implementation(libs.androidx.profileinstaller)
@@ -28,6 +32,12 @@ kotlin {
         }
 
         commonMain.dependencies {
+            api(projects.localization)
+            implementation(projects.logger)
+
+            implementation(projects.uiKit)
+            implementation(projects.uiKitApi)
+
             implementation(projects.shared)
             implementation(projects.sharedApi)
 
@@ -35,7 +45,7 @@ kotlin {
             implementation(projects.chatApi)
 
             implementation(projects.agent)
-            api(projects.agentApi)
+            implementation(projects.agentApi)
 
             implementation(projects.conversation)
             implementation(projects.conversationApi)
@@ -53,40 +63,15 @@ kotlin {
     }
 }
 
-android {
-    namespace = "com.catsoft.adaptivechat"
-
-    defaultConfig {
-        multiDexEnabled = true
-        applicationId = "com.catsoft.adaptivechat"
-        versionCode = appVersionCode
-        versionName = appVersionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
-    // todo signing and build types
-    buildTypes {
-        getByName("debug") {
-            isMinifyEnabled = false
-        }
-        getByName("release") {
-            isMinifyEnabled = true
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_24
-        targetCompatibility = JavaVersion.VERSION_24
-    }
-    buildFeatures {
-        buildConfig = true
-    }
+val copyLocalizationResources = tasks.register<Copy>("copyLocalizationResources") {
+    dependsOn(":localization:prepareComposeResourcesTaskForCommonMain")
+    
+    from(project(":localization").file("build/generated/compose/resourceGenerator/preparedResources/commonMain/composeResources"))
+    into(layout.buildDirectory.dir("generatedLocalizationRes/composeResources/com.adaptivechat.localization.resources"))
 }
 
-dependencies {
-    debugImplementation(compose.uiTooling)
+afterEvaluate {
+    tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }.configureEach {
+        dependsOn(copyLocalizationResources)
+    }
 }

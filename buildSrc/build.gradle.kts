@@ -29,7 +29,7 @@ gradlePlugin {
     plugins {
         register("configure-application") {
             id = "configure-application"
-            implementationClass = "ConfigureMultiplatformApplication"
+            implementationClass = "ConfigureAndroidApplication"
         }
         register("configure-library") {
             id = "configure-library"
