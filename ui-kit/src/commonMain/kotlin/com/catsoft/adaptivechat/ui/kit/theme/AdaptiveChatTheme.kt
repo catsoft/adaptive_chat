@@ -10,7 +10,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-private val LightColorScheme = lightColorScheme(
+private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFFECECEC),              // Light gray primary
     onPrimary = Color(0xFF1A1A1A),            // Very dark text
     primaryContainer = Color(0xFF2F2F2F),     // Dark gray container
@@ -33,7 +33,7 @@ private val LightColorScheme = lightColorScheme(
     outlineVariant = Color(0xFF3A3A3A),       // Subtle border
 )
 
-private val DarkColorScheme = darkColorScheme(
+private val LightColorScheme = lightColorScheme(
     primary = Color(0xFF2D2D2D),              // Dark gray primary
     onPrimary = Color.White,
     primaryContainer = Color(0xFFF7F7F8),     // Very light gray container
@@ -139,7 +139,7 @@ fun AdaptiveChatTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) LightColorScheme else DarkColorScheme
+    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     SetPlatformTheme(colorScheme, darkTheme)
 

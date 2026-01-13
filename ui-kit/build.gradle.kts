@@ -7,17 +7,11 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.room)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.atomic)
 }
 
 apply(from = "../common-module-compose.gradle")
 apply(from = "../common-pagings.gradle")
 apply(from = "../common-connectivity.gradle")
-
-atomicfu {
-    transformJvm = false
-    transformJs = false
-}
 
 kotlin {
 

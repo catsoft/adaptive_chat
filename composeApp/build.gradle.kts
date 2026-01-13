@@ -1,10 +1,8 @@
-import com.android.build.api.dsl.androidLibrary
-import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.android.application)
-    id("configure-application")
+    alias(libs.plugins.android.library)
+    id("configure-library")
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.compose.compiler)
 }
@@ -20,6 +18,12 @@ val appVersionCode: Int by rootProject.extra
 
 kotlin {
     sourceSets {
+        commonMain {
+            resources.srcDirs(
+                layout.buildDirectory.dir("generatedLocalizationRes")
+            )
+        }
+
         androidMain.dependencies {
             implementation(libs.installreferrer)
             implementation(libs.androidx.profileinstaller)
@@ -57,52 +61,6 @@ kotlin {
             implementation(libs.alert.kmp)
         }
     }
-}
-
-android {
-    namespace = "com.catsoft.adaptivechat"
-    
-    sourceSets {
-        getByName("main") {
-            assets.srcDirs(
-                layout.buildDirectory.dir("generatedLocalizationRes")
-            )
-        }
-    }
-
-    defaultConfig {
-        multiDexEnabled = true
-        applicationId = "com.catsoft.adaptivechat"
-        versionCode = appVersionCode
-        versionName = appVersionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
-    // todo signing and build types
-    buildTypes {
-        getByName("debug") {
-            isMinifyEnabled = false
-        }
-        getByName("release") {
-            isMinifyEnabled = true
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_24
-        targetCompatibility = JavaVersion.VERSION_24
-    }
-    buildFeatures {
-        buildConfig = true
-    }
-}
-
-dependencies {
-    debugImplementation(compose.uiTooling)
 }
 
 val copyLocalizationResources = tasks.register<Copy>("copyLocalizationResources") {
