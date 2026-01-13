@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.catsoft.adaptivechat.logger.logger
 import com.catsoft.adaptivechat.logger.runLogCatching
-import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -15,12 +14,13 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlin.concurrent.atomics.AtomicBoolean
 import kotlin.concurrent.atomics.ExperimentalAtomicApi
 
 abstract class ACViewModel<T>() : ViewModel() {
 
     @OptIn(ExperimentalAtomicApi::class)
-    private var loaded: kotlinx.atomicfu.AtomicBoolean = atomic(false)
+    private var loaded: AtomicBoolean = AtomicBoolean(false)
 
 
     // should be above init in viewModel
@@ -58,14 +58,15 @@ abstract class ACViewModel<T>() : ViewModel() {
         }
     }
 
+    @OptIn(ExperimentalAtomicApi::class)
     open fun onRefresh(onEnd: () -> Unit = {}) = viewModelScope.launch {
         try {
-            if (loaded.value) {
+            if (loaded.load()) {
                 withTimeoutOrNull(5000L) {
                     loadInitialState()
                 }
             } else {
-                loaded.value = true
+                loaded.exchange(true)
                 loadInitialState()
             }
         } catch (e: Throwable) {
